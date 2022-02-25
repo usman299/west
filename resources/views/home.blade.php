@@ -2,7 +2,7 @@
 @section('content')
 
             <div class="row clearfix">
-                <div class="col-lg-3 col-md-6">
+{{--                <div class="col-lg-3 col-md-6">--}}
 
 {{--                    <div class="card text-center">--}}
 {{--                        <div class="body">--}}

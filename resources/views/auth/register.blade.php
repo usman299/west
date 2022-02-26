@@ -65,7 +65,7 @@
                                     <button type="submit" class="woocommerce-button button woocommerce-form-login__submit mo_btn" name="login" value="Log in">
                                         <i class="icofont-unlock"></i>Inscrire
                                     </button><br>
-                                    <div style="margin-top: 10px; text-align: center;">Vous avez déjà un compte?<a href="{{route('login')}}" style="font-size: 15px; color: blue;">Connexion</a></div>
+                                    <div style="margin-top: 10px; text-align: center;">Vous avez déjà un compte?<a href="{{route('login')}}" style="font-size: 15px; color: black;"><b>Connexion</b></a></div>
                                 </div>
                             </div>
                         </form>

@@ -137,7 +137,7 @@
                 </li>
 
                     <li class="{{ request()->is('admin/reservation/*') ? 'active open':'' }}">
-                        <a href="{{route('admin.reservation')}}" class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>Praticien</span> <span class="badge badge-success float-right"></span></a>
+                        <a href="{{route('admin.reservation')}}" class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>Réservation</span> <span class="badge badge-success float-right"></span></a>
 
                     </li>
 

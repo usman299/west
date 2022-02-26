@@ -104,7 +104,7 @@
                         </div>
                     </div>
                 </li>
-                <li class="header">MAIN</li>
+
                 <li class="{{ request()->is('home') ? 'active open':'' }}"> <a href="{{route('home')}}"><i class="zmdi zmdi-home"></i><span>Tableau de bord</span></a></li>
 {{--                <li>--}}
 {{--                    <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>Catégories</span> <span class="badge badge-success float-right"></span></a>--}}

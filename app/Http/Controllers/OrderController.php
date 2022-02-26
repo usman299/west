@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use App\Reservation;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -40,7 +41,7 @@ class OrderController extends Controller
     }
 
     public function adminReservation(){
-
-        return view('admin.reservation.index', );
+         $reservation = Reservation::all();
+        return view('admin.reservation.index',compact('reservation') );
     }
 }

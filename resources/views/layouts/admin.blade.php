@@ -136,6 +136,11 @@
                     </ul>
                 </li>
 
+                    <li class="{{ request()->is('admin/reservation/*') ? 'active open':'' }}">
+                        <a href="{{route('admin.reservation')}}" class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>Praticien</span> <span class="badge badge-success float-right"></span></a>
+
+                    </li>
+
 {{--                    <li class="{{ request()->is('user/*') ? 'active open':'' }}">--}}
 {{--                        <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>Praticien</span> <span class="badge badge-success float-right"></span></a>--}}
 {{--                        <ul class="ml-menu">--}}

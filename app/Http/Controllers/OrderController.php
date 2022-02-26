@@ -38,4 +38,9 @@ class OrderController extends Controller
         );
         return redirect()->back()->with($notification);
     }
+
+    public function adminReservation(){
+
+        return view('admin.reservation.index', );
+    }
 }

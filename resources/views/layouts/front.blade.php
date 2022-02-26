@@ -156,7 +156,29 @@ $gs = \App\Website::find(1);
                         <li><a href="{{route('front.index')}}#offers">Nos Offres</a></li>
                         <li><a href="{{route('front.index')}}#about">À propos</a></li>
                         <li><a href="{{route('front.index')}}#blog">Blog</a></li>
+                        <li><a href="{{route('front.reservation')}}">Réservation</a></li>
                         <li><a href="{{route('front.contact')}}">Contacts</a></li>
+                        @auth
+                            <li><a href="{{route('user.dashboard')}}">{{Auth::user()->fname.' '.Auth::user()->lname}}</a>
+{{--                                <ul aria-expanded="false">--}}
+{{--                                    <li>--}}
+{{--                                        <a href="{{route('logout')}}" onclick="event.preventDefault();--}}
+{{--                                                     document.getElementById('logout-form').submit();"--}}
+{{--                                           class="dropdown-item ai-icon">--}}
+{{--                                            <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>--}}
+{{--                                            <span class="ml-2">--}}
+{{--                                    Sortir--}}
+{{--                                    </span>--}}
+{{--                                        </a>--}}
+{{--                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">--}}
+{{--                                            @csrf--}}
+{{--                                        </form>--}}
+{{--                                    </li>--}}
+{{--                                </ul>--}}
+                            </li>
+                        @else
+                            <li><a href="{{route('login')}}">Connexion</a></li>
+                        @endauth
 {{--                        @guest--}}
 {{--                        <li><a href="{{route('front.index')}}#espace">Espace Praticien</a></li>--}}
 {{--                        @endguest--}}
@@ -321,6 +343,27 @@ $gs = \App\Website::find(1);
 
 <script src="{{asset('front/js/theme.js')}}"></script>
 <!-- End Include All JS -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script>
+        @if(Session::has('messege'))
+    var type="{{Session::get('alert-type','info')}}"
+    switch(type){
+        case 'info':
+            toastr.info("{{ Session::get('messege') }}");
+            break;
+        case 'success':
+            toastr.success("{{ Session::get('messege') }}");
+            break;
+        case 'warning':
+            toastr.warning("{{ Session::get('messege') }}");
+            break;
+        case 'error':
+            toastr.error("{{ Session::get('messege') }}");
+            break;
+    }
+    @endif
+</script>
+
 <script>
     var slideIndex = 1;
     showDivs(slideIndex);
@@ -360,6 +403,8 @@ $gs = \App\Website::find(1);
     // Get the element with id="defaultOpen" and click on it
     document.getElementById("defaultOpen").click();
 </script>
+
+
 @yield('script')
 </body>
 </html>

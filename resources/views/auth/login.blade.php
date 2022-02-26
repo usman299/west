@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-lg-3"></div>
             <div class="col-lg-6">
-                <h3 style="text-align: center">Bienvenue veuillez vous identifier pour accéder à nos produits</h3>
+                <h3 style="text-align: center">Bienvenue veuillez vous connecter</h3>
                 <div class="authWrap authLogin">
                     <h2 class="authTitle">Connexion</h2>
                     <form method="POST" action="{{ route('login') }}">
@@ -33,7 +33,8 @@
                             <div class="col-sm-12">
                                 <button type="submit" class="woocommerce-button button woocommerce-form-login__submit mo_btn" name="login" value="Log in">
                                     <i class="icofont-unlock"></i>Connexion
-                                </button>
+                                </button><br>
+                                <div style="margin-top: 10px; text-align: center;">Je n’ai pas de compte?<a href="{{route('register')}}" style="font-size: 15px; color: blue;">Inscription</a></div>
                             </div>
                         </div>
                     </form>

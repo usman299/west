@@ -25,6 +25,8 @@ Route::post('/checkout/submit', 'FrontendController@checkoutSubmit')->name('chec
 Route::get('/removecart/{id}', 'FrontendController@removecart')->name('removecart');
 
 Route::get('/contact', 'FrontendController@contact')->name('front.contact');
+Route::get('/reservation', 'FrontendController@reservation')->name('front.reservation');
+Route::post('/reservation/store', 'FrontendController@reservationStore')->name('front.reservation.store');
 Route::get('/single/product/{id}', 'FrontendController@product')->name('front.product');
 Route::get('/blog/view/{id}', 'FrontendController@blog')->name('blog.view');
 Route::get('/products', 'FrontendController@products')->name('front.products');
@@ -57,8 +59,10 @@ Route::get('/blog/delete/{id}', 'ContentController@blogdelete')->name('blog.dele
     Route::get('/clients/order/complete', 'OrderController@clientscomplete')->name('admin.clients.order.complete');
 
     Route::get('/admin/order/index', 'OrderController@index')->name('admin.order.index');
+    Route::get('/admin/reservation', 'OrderController@adminReservation')->name('admin.reservation');
     Route::get('/admin/order/complete', 'OrderController@complete')->name('admin.order.complete');
     Route::get('/admin/order/view/{id}', 'OrderController@view')->name('admin.order.view');
+
     Route::get('/admin/order/status/{id}', 'OrderController@status')->name('admin.order.status');
 
     Route::get('/coupon/index', 'UserController@coupon')->name('coupon.index');

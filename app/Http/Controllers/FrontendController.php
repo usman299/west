@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Blog;
+
 use App\Category;
 use App\Coupon;
 use App\Order;
 use App\Product;
+use App\Reservation;
 use App\User;
 use App\Website;
 use Darryldecode\Cart\CartCondition;
@@ -93,7 +95,8 @@ class FrontendController extends Controller
     public function userDashboard(){
         $user = Auth::user();
         $orders = Order::where('user_id', $user->id)->where('paymentstatus', '1')->get();
-        return view('user.dashboard', compact('user', 'orders'));
+        $reservation = Reservation::where('user_id','=',Auth::user()->id)->get();
+        return view('user.dashboard', compact('user', 'orders','reservation'));
     }
     public function profileupdate(Request $request){
         $id = Auth::user();
@@ -213,5 +216,33 @@ class FrontendController extends Controller
         Session::forget('coupon');
         Session::forget('before_discount_total');
         return redirect()->back();
+    }
+    public function reservation(){
+
+        $content = Website::find(1);
+        return view('front.reservation', compact('content'));
+    }
+    public function reservationStore(Request $request){
+
+        $check = Reservation::whereDate('date','=',$request->date)->where('time','=',$request->time)->first();
+        if($check){
+            Session::flash('message', 'Cette réservation déjà réservée!');
+            return redirect()->back();
+        }
+        else {
+            $res = new Reservation();
+            $res->user_id = Auth::user()->id;
+            $res->fname = $request->fname;
+            $res->lname = $request->lname;
+            $res->email = $request->email;
+            $res->address = $request->address;
+            $res->phone = $request->phone;
+            $res->date = $request->date;
+            $res->time = $request->time;
+            $res->email = $request->email;
+            $res->save();
+            Session::flash('message', 'Réservation Confirmer!');
+            return redirect()->back();
+        }
     }
 }

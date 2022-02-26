@@ -4,7 +4,7 @@
         <div class="container" style="margin-top: 50px">
             <div class="row">
                 <div class="col-lg-12">
-                    <img src="{{asset('front/images/6.png')}}" style="width: 100%" alt="">
+{{--                    <img src="{{asset('front/images/6.png')}}" style="width: 100%" alt="">--}}
                 </div>
             </div>
             <br>
@@ -12,9 +12,10 @@
                 <div class="col-lg-12">
                     <div class="tab">
                         <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Tableau de bord</button>
-                        <a href="{{route('front.products')}}"> <button class="tablinks">Produits</button></a>
-                        <button class="tablinks" onclick="openCity(event, 'Paris')">Mes Commandes</button>
-                      <button class="tablinks" onclick="openCity(event, 'Tokyo')">Détails du compte</button>
+                        <button class="tablinks" onclick="openCity(event, 'reservation')">Réservation</button>
+{{--                        <a href="{{route('front.products')}}"> <button class="tablinks">Produits</button></a>--}}
+{{--                        <button class="tablinks" onclick="openCity(event, 'Paris')">Mes Commandes</button>--}}
+{{--                      <button class="tablinks" onclick="openCity(event, 'Tokyo')">Détails du compte</button>--}}
                         <a href="{{route('logout')}}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                             <button class="tablinks">Sortie</button>
@@ -32,6 +33,32 @@
                         <h3> Vous y touverez egalement vos commandes, et le détails de votre compte.</h3>
                         <br>
                     </div>
+                    <div id="reservation" class="tabcontent">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <tbody>
+                            <tr>
+                                <th>#</th>
+                                <th>Nom</th>
+                                <th>Date</th>
+                                <th>Temps</th>
+
+                            </tr>
+                            @foreach($reservation as $key=> $row)
+                                <tr>
+                                    <td>{{$key+1}}</td>
+                                    <td>{{$row->fname.' '.$row->fname}}</td>
+                                    <td>
+                                        {{$row->date}}
+                                    </td>
+                                    <td>{{$row->time}} </td>
+
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
 
                     <div id="Paris" class="tabcontent">
                         <div class="table-responsive">

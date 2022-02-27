@@ -148,6 +148,18 @@ $gs = \App\Website::find(1);
             background: black !important;
 
         }
+        .mainMenu {
+            position: relative;
+            line-height: .8;
+            padding: 37px 0 0 0px;
+        }
+        @media (max-width: 1023px) {
+            .header_03 .mainMenu, .mainMenu {
+
+                background: #141313 !important;
+
+            }
+        }
 
 
     </style>

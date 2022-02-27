@@ -186,8 +186,8 @@ $gs = \App\Website::find(1);
                         <li><a href="{{route('front.index')}}#mission" style="font-size: 12px;">Notre Mission</a></li>
                         <li><a href="{{route('front.index')}}#offers" style="font-size: 12px;">Nos Offres</a></li>
                         <li><a href="{{route('front.index')}}#about" style="font-size: 12px;">À propos</a></li>
-                        <li><a href="{{route('front.index')}}#blog" style="font-size: 12px;">Blog</a></li>
-                        <li><a href="{{route('front.reservation')}}" style="font-size: 12px;">Réservation</a></li>
+                        <li><a href="{{route('front.index')}}#blog" style="font-size: 12px;">Galerie</a></li>
+                        <li><a href="{{route('front.index')}}#réservation" style="font-size: 12px;">Réservation</a></li>
                         <li><a href="{{route('front.contact')}}" style="font-size: 12px;">Contacts</a></li>
                         @auth
                             <li><a href="{{route('user.dashboard')}}" style="font-size: 12px;">{{Auth::user()->fname.' '.Auth::user()->lname}}</a>

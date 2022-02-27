@@ -23,7 +23,7 @@
                 <div class="col-lg-6 col-md-12">
                     <div class="company_detail">
                         <h4 class="logo"><img src="{{asset('admin/')}}assets/images/logo.svg" alt=""> Connexion</h4>
-                        <h3>CONNEXION AU TABLEAU DE BORD WEST INDIES CARE</h3>
+                        <h3>CONNEXION AU TABLEAU DE BORD BULLES EN DOUC'HEURE</h3>
                     </div>
                 </div>
                 <div class="col-lg-5 col-md-12 offset-lg-1">

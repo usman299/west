@@ -137,7 +137,7 @@ $gs = \App\Website::find(1);
 
 
 <!-- Begin:: Header Section -->
-<header class="header_01 isSticky">
+<header class="header_01 isSticky" style="background-color: white;">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-2 cusLogo">

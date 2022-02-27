@@ -56,7 +56,7 @@
                             <div class="col-lg-4 col-md-5 noPaddingLeft noPaddingRight">
                                 <div class="icon_box_03">
                                     <i class="icofont-location-pin"></i>
-                                    <h4>WEST INDIES CARE</h4>
+                                    <h4>Bulles en douc'heure</h4>
                                     <p>
                                        {{$content->address}}<br>
                                         {{$content->phone}}<br/>

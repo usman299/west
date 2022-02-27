@@ -251,9 +251,9 @@
             <div class="col-lg-6 col-md-6">
                 <div class="abContent">
                     <h2>
-                        WEST INDIES
+                        Bulles en
 
-                        <span class="fontWeight400 colorPrimary">CARE</span>
+                        <span class="fontWeight400 colorPrimary">douc'heure</span>
                     </h2>
                     <p>
                       {!! $content->about !!}
@@ -275,7 +275,7 @@
             <div class="col-lg-10 offset-lg-1">
                 <div class="sectionTitle text-center">
                     <img src="{{asset('front/images/icons/2.png')}}" alt="">
-                    <h2>BLOG <span class="colorPrimary fontWeight400"></span></h2>
+                    <h2>Galerie <span class="colorPrimary fontWeight400"></span></h2>
                 </div>
             </div>
         </div>

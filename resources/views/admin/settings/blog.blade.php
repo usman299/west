@@ -5,7 +5,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="header">
-                    <h2><strong>Tous les Blogs</strong>
+                    <h2><strong>Tous les Galerie</strong>
                         <a href="#defaultModal" class="btn btn-primary"  data-toggle="modal" data-target="#defaultModal">Ajouter un nouveau
                         </a>
                     </h2>

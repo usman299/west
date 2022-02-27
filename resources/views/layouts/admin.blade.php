@@ -132,7 +132,7 @@
                         <li><a href="{{route('general.mission')}}">Notre Mission</a></li>
                         <li><a href="{{route('general.video')}}">Video</a></li>
                         <li><a href="{{route('general.about')}}">À propos de nous</a></li>
-                        <li><a href="{{route('general.blog')}}">Blog</a></li>
+                        <li><a href="{{route('general.blog')}}">Galerie</a></li>
                     </ul>
                 </li>
 

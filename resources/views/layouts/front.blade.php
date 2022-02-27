@@ -131,13 +131,16 @@ $gs = \App\Website::find(1);
             line-height: .8;
             padding: 37px 0 0 0px;
         }
+        .header-transparent {
+            background-color: rgba(0,0,0,0.7);
+        }
     </style>
 </head>
 <body>
 
 
 <!-- Begin:: Header Section -->
-<header class="header_01 isSticky" style="background-color: white;">
+<header class="header_01 isSticky header-transparent" >
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-2 cusLogo">

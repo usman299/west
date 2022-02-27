@@ -143,6 +143,12 @@ $gs = \App\Website::find(1);
             font-family: 'Playfair Display', serif;
             position: relative;
         }
+        .header_01.fixedHeader {
+
+            background: black !important;
+
+        }
+
 
     </style>
 </head>

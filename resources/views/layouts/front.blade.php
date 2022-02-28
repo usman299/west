@@ -134,7 +134,15 @@ $gs = \App\Website::find(1);
         .header-transparent {
             background-color: rgba(0,0,0,0.7);
         }
-
+        .mainMenu ul li a {
+            display: block;
+            font-size: 16px;
+            line-height: .8;
+            color: white !important;
+            font-weight: 500;
+            font-family: 'Playfair Display', serif;
+            position: relative;
+        }
         .header_01.fixedHeader {
 
             background: black !important;
@@ -311,7 +319,7 @@ $gs = \App\Website::find(1);
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <p>© 2021 <a href="http://ikaedigital.com" target="_blank" rel="noopener">Ikae Digital</a> . All Rights Reserved.</p>
+                <p>© 2022 <a href="http://ikaedigital.com" target="_blank" rel="noopener">Ikae Digital</a> . All Rights Reserved.</p>
             </div>
             <div class="col-md-6">
                 <div class="copy_social">

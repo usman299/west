@@ -1,407 +1,305 @@
 @extends('layouts.front')
-<style>
-    .appointment_area {
-
-        padding: 107px 25px 80px !important;
-
-    }
-    input[type="date"],   .nice-select {
-        display: block;
-        width: 100%;
-        height: 60px;
-        background: #fff;
-        padding: 0 25px;
-        border: none;
-        border-radius: 0;
-        font-size: 14px;
-        line-height: 60px;
-        margin: 0 0 20px;
-        color: #879296;
-        -webkit-filter: drop-shadow( -1px 2px 5px rgba(255, 246, 244, 1));
-        -moz-filter: drop-shadow( -1px 2px 5px rgba(255, 246, 244, 1));
-        filter: drop-shadow( -1px 2px 5px rgba(255, 246, 244, 1));
-    }
-</style>
 @section('content')
-<!-- Begin:: Slider Section -->
-<section class="slider_01">
-    <div class="rev_slider_wrapper">
-        <div id="rev_slider_1" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.4.1">
-            <ul>
-                <li data-index="rs-3046" data-transition="random-premium" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power3.easeInOut" data-easeout="Power3.easeInOut" data-masterspeed="1000"  data-thumb=""  data-rotate="0"  data-saveperformance="off"  data-title="" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
-                    <img src="{{asset($content->simage1)}}" alt="App Store">
-                </li>
-                <li data-index="rs-3046" data-transition="random-premium" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power3.easeInOut" data-easeout="Power3.easeInOut" data-masterspeed="1000"  data-thumb=""  data-rotate="0"  data-saveperformance="off"  data-title="" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
-                    <img src="{{asset($content->simage2)}}" alt="App Store">
-                </li>
-                <li data-index="rs-3046" data-transition="random-premium" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power3.easeInOut" data-easeout="Power3.easeInOut" data-masterspeed="1000"  data-thumb=""  data-rotate="0"  data-saveperformance="off"  data-title="" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
-                    <img src="{{asset($content->simage3)}}" alt="App Store">
-                </li>
-            </ul>
+    <!-- Begin:: Slider Section -->
+    <section class="slider_01">
+        <div class="rev_slider_wrapper">
+            <div id="rev_slider_1" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.4.1">
+                <ul>
+                    <li data-index="rs-3046" data-transition="random-premium" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power3.easeInOut" data-easeout="Power3.easeInOut" data-masterspeed="1000"  data-thumb=""  data-rotate="0"  data-saveperformance="off"  data-title="" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+                        <img src="{{asset($content->simage1)}}" alt="App Store">
+                    </li>
+                    <li data-index="rs-3046" data-transition="random-premium" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power3.easeInOut" data-easeout="Power3.easeInOut" data-masterspeed="1000"  data-thumb=""  data-rotate="0"  data-saveperformance="off"  data-title="" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+                        <img src="{{asset($content->simage2)}}" alt="App Store">
+                    </li>
+                    <li data-index="rs-3046" data-transition="random-premium" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power3.easeInOut" data-easeout="Power3.easeInOut" data-masterspeed="1000"  data-thumb=""  data-rotate="0"  data-saveperformance="off"  data-title="" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+                        <img src="{{asset($content->simage3)}}" alt="App Store">
+                    </li>
+                </ul>
+            </div>
         </div>
+    </section>
+    <!-- End:: Slider Section -->
+    <div class="w3-content w3-display-container mobileslider">
+        <img class="mySlides" src="{{asset($content->simage1)}}" style="width:100%; height: 400px">
+        <img class="mySlides" src="{{asset($content->simage2)}}" style="width:100%; height: 400px">
+        <img class="mySlides" src="{{asset($content->simage3)}}" style="width:100%; height: 400px">
+
+        <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+        <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
     </div>
-</section>
-<!-- End:: Slider Section -->
-<div class="w3-content w3-display-container mobileslider">
-    <img class="mySlides" src="{{asset($content->simage1)}}" style="width:100%; height: 400px">
-    <img class="mySlides" src="{{asset($content->simage2)}}" style="width:100%; height: 400px">
-    <img class="mySlides" src="{{asset($content->simage3)}}" style="width:100%; height: 400px">
+    <!-- Begin:: Welcome Section -->
+    <section class="commonSection welcomeSection" id="mission">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="sectionTitle text-center">
+                        <img src="{{asset('front/images/icons/1.png')}}" alt=""/>
+                        <h5 class="primaryFont">Notre mission</h5>
+                        <h2>{{$content->mtitle1}} <span class="colorPrimary fontWeight400">{{$content->mtitle2}}</span></h2>
+                        <p>
+                            {{$content->mission}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div  class="row">
+                <div class="col-md-6">
+                    <div class="actionBox">
 
-    <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-    <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
-</div>
-<!-- Begin:: Welcome Section -->
-<section class="commonSection welcomeSection" id="mission">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-10 offset-lg-1">
-                <div class="sectionTitle text-center">
-                    <img src="{{asset('front/images/icons/1.png')}}" alt=""/>
-                    <h5 class="primaryFont">Notre mission</h5>
-                    <h2>{{$content->mtitle1}} <span class="colorPrimary fontWeight400">{{$content->mtitle2}}</span></h2>
-                    <p>
-                      {{$content->mission}}
-                    </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="actionBox abBg2">
+
+                    </div>
                 </div>
             </div>
         </div>
-        <div  class="row">
-            <div class="col-md-6">
-                <div class="actionBox">
+    </section>
+    <!-- End:: Welcome Section -->
 
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="actionBox abBg2">
-
-                </div>
-            </div>
+    <!-- Begin:: Service Section -->
+    <div class="commonSection serviceSection hasBeforeDecoration hasAfterDecoration" id="offers">
+        <div class="layer_img l_01 move_anim">
+            <img src="{{asset('front/images/bg/12.png')}}" alt=""/>
         </div>
-    </div>
-</section>
-<!-- End:: Welcome Section -->
-
-<!-- Begin:: Service Section -->
-<div class="commonSection serviceSection hasBeforeDecoration hasAfterDecoration" id="offers">
-    <div class="layer_img l_01 move_anim">
-        <img src="{{asset('front/images/bg/12.png')}}" alt=""/>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-10 offset-lg-1">
-                <div class="sectionTitle text-center">
-                    <img src="{{asset('front/images/icons/2.png')}}" alt=""/>
-                    <h5 class="primaryFont">Communauté</h5>
-                    <h2>Bien-être Caraïbes</h2>
-                    <p>
-                        Une rencontre mensuel avec des experts (thérapeutes, fabricants, marketeurs
-                    </p>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="sectionTitle text-center">
+                        <img src="{{asset('front/images/icons/2.png')}}" alt=""/>
+                        <h5 class="primaryFont">Communauté</h5>
+                        <h2>Bien-être Caraïbes</h2>
+                        <p>
+                            Une rencontre mensuel avec des experts (thérapeutes, fabricants, marketeurs
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-3 col-md-6">
-                <div class="serviceItem_01 text-center">
-                    <div class="ib_box">
-                        <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-                             width="167.000000pt" height="147.000000pt" viewBox="0 0 167.000000 147.000000"
-                             preserveAspectRatio="xMidYMid meet">
-                            <g transform="translate(0.000000,147.000000) scale(0.050000,-0.050000)"
-                               fill="#252525" stroke="none">
-                                <path d="M1257 2920 c-50 -9 -109 -25 -130 -35 -20 -11 -95 -25 -165 -31 -523
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="serviceItem_01 text-center">
+                        <div class="ib_box">
+                            <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                                 width="167.000000pt" height="147.000000pt" viewBox="0 0 167.000000 147.000000"
+                                 preserveAspectRatio="xMidYMid meet">
+                                <g transform="translate(0.000000,147.000000) scale(0.050000,-0.050000)"
+                                   fill="#252525" stroke="none">
+                                    <path d="M1257 2920 c-50 -9 -109 -25 -130 -35 -20 -11 -95 -25 -165 -31 -523
                                    -45 -900 -630 -953 -1477 -43 -680 253 -1056 996 -1266 720 -204 1195 -98
                                    1691 377 805 772 854 1763 105 2149 -412 213 -1153 349 -1544 283z"/>
-                            </g>
-                        </svg>
-                        <div class="bg_icon"><i class="mkov-stone"></i></div>
-                        <i class="mkov-stone"></i>
+                                </g>
+                            </svg>
+                            <div class="bg_icon"><i class="mkov-stone"></i></div>
+                            <i class="mkov-stone"></i>
+                        </div>
+                        <p>
+                            Une nouvelle <br> thématique <br> développée <br> à chaque rencontre
+                        </p>
                     </div>
-                    <p>
-                        Une nouvelle <br> thématique <br> développée <br> à chaque rencontre
-                    </p>
                 </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="serviceItem_01 sIlg text-center">
-                    <div class="ib_box">
-                        <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-                             width="167.000000pt" height="147.000000pt" viewBox="0 0 167.000000 147.000000"
-                             preserveAspectRatio="xMidYMid meet">
-                            <g transform="translate(0.000000,147.000000) scale(0.050000,-0.050000)"
-                               fill="#252525" stroke="none">
-                                <path d="M1572 2919 c-708 -80 -1193 -291 -1416 -614 -534 -777 474 -2293
+                <div class="col-lg-3 col-md-6">
+                    <div class="serviceItem_01 sIlg text-center">
+                        <div class="ib_box">
+                            <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                                 width="167.000000pt" height="147.000000pt" viewBox="0 0 167.000000 147.000000"
+                                 preserveAspectRatio="xMidYMid meet">
+                                <g transform="translate(0.000000,147.000000) scale(0.050000,-0.050000)"
+                                   fill="#252525" stroke="none">
+                                    <path d="M1572 2919 c-708 -80 -1193 -291 -1416 -614 -534 -777 474 -2293
                                    1524 -2292 887 1 1576 436 1644 1037 101 889 -356 1757 -949 1804 -69 5 -160
                                    22 -202 38 -98 37 -396 51 -601 27z"/>
-                            </g>
-                        </svg>
-                        <div class="bg_icon"><i class="mkov-abv"></i></div>
-                        <i class="mkov-candle"></i>
+                                </g>
+                            </svg>
+                            <div class="bg_icon"><i class="mkov-abv"></i></div>
+                            <i class="mkov-candle"></i>
+                        </div>
+                        <p>
+                            Networking
+                        </p>
                     </div>
-                    <p>
-                        Networking
-                    </p>
                 </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="serviceItem_01 sIlg text-center">
-                    <div class="ib_box">
-                        <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-                             width="175.000000pt" height="152.000000pt" viewBox="0 0 175.000000 152.000000"
-                             preserveAspectRatio="xMidYMid meet">
-                            <g transform="translate(0.000000,152.000000) scale(0.050000,-0.050000)"
-                               fill="#252525" stroke="none">
-                                <path d="M1115 2973 c-533 -182 -1118 -1037 -1091 -1597 31 -647 948 -1379
+                <div class="col-lg-3 col-md-6">
+                    <div class="serviceItem_01 sIlg text-center">
+                        <div class="ib_box">
+                            <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                                 width="175.000000pt" height="152.000000pt" viewBox="0 0 175.000000 152.000000"
+                                 preserveAspectRatio="xMidYMid meet">
+                                <g transform="translate(0.000000,152.000000) scale(0.050000,-0.050000)"
+                                   fill="#252525" stroke="none">
+                                    <path d="M1115 2973 c-533 -182 -1118 -1037 -1091 -1597 31 -647 948 -1379
                                    1694 -1351 1127 43 2049 1058 1675 1845 -197 414 -1177 1090 -1581 1090 -27 0
                                    -102 14 -165 30 -170 44 -371 38 -532 -17z"/>
-                            </g>
-                        </svg>
-                        <div class="bg_icon"><i class="mkov-morter"></i></div>
-                        <i class="mkov-morter"></i>
+                                </g>
+                            </svg>
+                            <div class="bg_icon"><i class="mkov-morter"></i></div>
+                            <i class="mkov-morter"></i>
+                        </div>
+                        <p>
+                            <A></A>Rifs préférentiels<br>
+                            aux formations
+                        </p>
                     </div>
-                    <p>
-                        <A></A>Rifs préférentiels<br>
-                        aux formations
-                    </p>
                 </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="serviceItem_01 text-center">
-                    <div class="ib_box">
-                        <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-                             width="167.000000pt" height="147.000000pt" viewBox="0 0 167.000000 147.000000"
-                             preserveAspectRatio="xMidYMid meet">
-                            <g transform="translate(0.000000,147.000000) scale(0.050000,-0.050000)"
-                               fill="#252525" stroke="none">
-                                <path d="M1560 2919 c-1285 -156 -1790 -718 -1459 -1625 305 -836 1087 -1375
+                <div class="col-lg-3 col-md-6">
+                    <div class="serviceItem_01 text-center">
+                        <div class="ib_box">
+                            <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                                 width="167.000000pt" height="147.000000pt" viewBox="0 0 167.000000 147.000000"
+                                 preserveAspectRatio="xMidYMid meet">
+                                <g transform="translate(0.000000,147.000000) scale(0.050000,-0.050000)"
+                                   fill="#252525" stroke="none">
+                                    <path d="M1560 2919 c-1285 -156 -1790 -718 -1459 -1625 305 -836 1087 -1375
                                    1835 -1266 826 122 1314 467 1386 982 122 875 -341 1790 -933 1843 -65 6 -154
                                    24 -198 40 -97 37 -431 51 -631 26z"/>
-                            </g>
-                        </svg>
-                        <div class="bg_icon"><i class="mkov-bottle"></i></div>
-                        <i class="mkov-bottle"></i>
+                                </g>
+                            </svg>
+                            <div class="bg_icon"><i class="mkov-bottle"></i></div>
+                            <i class="mkov-bottle"></i>
+                        </div>
+                        <p>
+                            Oujous informés sur : <br>
+
+                            les nouvelles techniques, <br>
+
+                            les nouveaux produits,<br>
+
+                            les nouveaux outils,
+                        </p>
                     </div>
-                    <p>
-                        Oujous informés sur : <br>
-
-                        les nouvelles techniques, <br>
-
-                        les nouveaux produits,<br>
-
-                        les nouveaux outils,
-                    </p>
                 </div>
             </div>
         </div>
+        <div class="layer_img l_02 move_anim_two">
+            <img src="{{asset('front/images/bg/11.png')}}" alt=""/>
+        </div>
     </div>
-    <div class="layer_img l_02 move_anim_two">
-        <img src="{{asset('front/images/bg/11.png')}}" alt=""/>
-    </div>
-</div>
-<section class="réservation" id="réservation">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="appointment_area">
-                    <div class="row">
-                        <div class="col-lg-8 col-md-7">
-                            <div class="appointment_form">
-                                <form action="{{route('front.reservation.store')}}" method="post" class="row" >
-                                    @csrf
-
-                                    <div class="input-field col-lg-6">
-                                        <input class="required" type="text" name="fname" placeholder="Prénom" required>
-                                    </div>
-                                    <div class="input-field col-lg-6">
-                                        <input class="required" type="text" name="lname" placeholder="Nom de famille" required>
-                                    </div>
-                                    <div class="input-field col-lg-6">
-                                        <input class="required" type="email" name="email" placeholder="E-mail" required>
-                                    </div>
-                                    <div class="input-field col-lg-6">
-                                        <input class="required " type="date" name="date" required>
-                                    </div>
-                                    <div class="input-field col-lg-6 select-area">
-                                        <select class="required" name="time" required>
-                                            <option value="">Sélectionnez l'heure</option>
-
-                                            <option value="1:00">1:00</option>
-                                            <option value="2:00">2:00</option>
-                                            <option value="3:00">3:00</option>
-                                            <option value="4:00">4:00</option>
-                                            <option value="5:00">5:00</option>
-                                            <option value="6:00">6:00</option>
-                                            <option value="8:00">7:00</option>
-                                            <option value="1:00-2:00">8:00</option>
-                                            <option value="9:00">9:00</option>
-                                            <option value="10:00">10:00</option>
-                                            <option value="11:00">11:00</option>
-                                            <option value="12:00">12:00</option>
-                                            <option value="13:00">13:00</option>
-                                            <option value="14:00">14:00</option>
-                                            <option value="15:00">15:00</option>
-                                            <option value="16:00">16:00</option>
-                                            <option value="17:00">17:00</option>
-                                            <option value="18:00">18:00</option>
-                                            <option value="19:00">19:00</option>
-                                            <option value="20:00">20:00</option>
-                                            <option value="21:00">21:00</option>
-                                            <option value="22:00">22:00</option>
-                                            <option value="23:00">23:00</option>
-                                            <option value="24:00">24:00</option>
-
-                                        </select>
-                                    </div>
-                                    <div class="input-field col-lg-6">
-                                        <input type="number" name="phone" placeholder="Téléphone" required>
-                                    </div>
-
-                                    <div class="input-field col-lg-12">
-                                        <textarea class="required" name="address" placeholder="Votre adresse" required></textarea>
-                                    </div>
-                                    <div class="input-field col-lg-12" style="margin-top: 20px; margin-left: 250px;">
-                                        @auth
-                                            <button type="submit" class="mo_btn mob_lg"><i class="icofont-calendar"></i>Réserve</button>
-                                        @else
-                                            <a  href="{{route('login')}}" class="mo_btn mob_lg"><i class="icofont-calendar"></i>Réserve</a>
-                                        @endauth
-                                        <div class="con_message"></div>
-                                    </div>
-                                </form>
+    <!-- End:: Service Section -->
+    @guest
+        <!-- Begin:: Espace Section -->
+        <section class="commonSection aboutSection" id="espace">
+            <div class="layer_img move_anim">
+                <img src="{{asset('front/images/bg/7.png')}}" alt=""/>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 noPaddingRight clearfix">
+                        <div class="aboutImg float-right clearfix">
+                            <div class="shape1">
+                                <img src="{{asset('front/images/bg/4.png')}}" alt=""/>
+                            </div>
+                            <div class="shape2">
+                                <img src="{{asset('front/images/bg/5.png')}}" alt=""/>
+                            </div>
+                            <div class="shape3 move_anim_two">
+                                <img src="{{asset('front/images/bg/6.png')}}" alt=""/>
+                            </div>
+                            <div class="abImg float-right">
+                                <img src="{{asset('front/images/home_01/1.jpg')}}" alt="Makeover"/>
                             </div>
                         </div>
-
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="abContent">
+                            <h2>
+                                Connectez-vous à <span class="fontWeight400 colorPrimary">Votre Compte</span>
+                            </h2>
+                            <p>
+                                Espace Praticien
+                            </p>
+                            <a href="{{route('login')}}" class="mo_btn mob_lg mob_shadow"><i class="icofont-long-arrow-right"></i>Connexion</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-<!-- End:: Service Section -->
-@guest
-<!-- Begin:: Espace Section -->
-<section class="commonSection aboutSection" id="espace">
-    <div class="layer_img move_anim">
-        <img src="{{asset('front/images/bg/7.png')}}" alt=""/>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-md-6 noPaddingRight clearfix">
-                <div class="aboutImg float-right clearfix">
-                    <div class="shape1">
-                        <img src="{{asset('front/images/bg/4.png')}}" alt=""/>
-                    </div>
-                    <div class="shape2">
-                        <img src="{{asset('front/images/bg/5.png')}}" alt=""/>
-                    </div>
-                    <div class="shape3 move_anim_two">
-                        <img src="{{asset('front/images/bg/6.png')}}" alt=""/>
-                    </div>
-                    <div class="abImg float-right">
-                        <img src="{{asset('front/images/home_01/1.jpg')}}" alt="Makeover"/>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-6">
-                <div class="abContent">
-                    <h2>
-                        Connectez-vous à <span class="fontWeight400 colorPrimary">Votre Compte</span>
-                    </h2>
-                    <p>
-                       Espace Praticien
-                    </p>
-                    <a href="{{route('login')}}" class="mo_btn mob_lg mob_shadow"><i class="icofont-long-arrow-right"></i>Connexion</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End:: Espace Section -->
-@endguest
+        </section>
+        <!-- End:: Espace Section -->
+    @endguest
 
 
-<!-- Begin:: Appointment Section -->
-<section class="commonSection">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="">
-                    <div class="video_banner">
-                        <img style="width: 100%" src="{{asset($content->vimage)}}" alt=""/>
-                        <a href="{{$content->video}}" class="popup_video"><i class="icofont-play"></i></a>
+    <!-- Begin:: Appointment Section -->
+    <section class="commonSection">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="">
+                        <div class="video_banner">
+                            <img style="width: 100%" src="{{asset($content->vimage)}}" alt=""/>
+                            <a href="{{$content->video}}" class="popup_video"><i class="icofont-play"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- End:: Appointment Section -->
+    </section>
+    <!-- End:: Appointment Section -->
 
-<!-- Begin:: About Section -->
-<section class="commonSection aboutSection" id="about">
-    <div class="layer_img move_anim">
-        <img src="{{asset('front/images/bg/7.png')}}" alt=""/>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-md-6 noPaddingRight clearfix">
-                <div class="float-right clearfix">
-                    <div class=" float-right">
-                        <img src="{{asset($content->aboutimage)}}" alt="Makeover"/>
+    <!-- Begin:: About Section -->
+    <section class="commonSection aboutSection" id="about">
+        <div class="layer_img move_anim">
+            <img src="{{asset('front/images/bg/7.png')}}" alt=""/>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 noPaddingRight clearfix">
+                    <div class="float-right clearfix">
+                        <div class=" float-right">
+                            <img src="{{asset($content->aboutimage)}}" alt="Makeover"/>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-6 col-md-6">
-                <div class="abContent">
-                    <h2>
-                        Bulles en
+                <div class="col-lg-6 col-md-6">
+                    <div class="abContent">
+                        <h2>
+                            Bulles en
 
-                        <span class="fontWeight400 colorPrimary">douc'heure</span>
-                    </h2>
-                    <p>
-                      {!! $content->about !!}
-                    </p>
-                    <a href="#" class="mo_btn mob_lg mob_shadow"><i class="icofont-long-arrow-right"></i>En savoir plus</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End:: About Section -->
-<!-- Begin:: Blog Section -->
-<section class="commonSection blogSection" id="blog">
-    <div class="layer_img l_04 move_anim">
-        <img src="{{asset('front/images/bg/16.png')}}" alt=""/>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-10 offset-lg-1">
-                <div class="sectionTitle text-center">
-                    <img src="{{asset('front/images/icons/2.png')}}" alt="">
-                    <h2>Galerie <span class="colorPrimary fontWeight400"></span></h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            @foreach($blogs as $blog)
-            <div class="col-lg-4 col-md-6">
-                <div class="blog_item_01">
-                    <img src="{{asset($blog->image)}}" alt=""/>
-                    <div class="bp_content">
-                        <span>{{$blog->created_at->format('d-m-y')}}</span>
-                        <h3><a href="#">{{$blog->title}}</a></h3>
-                        <a class="lr_more" href="{{route('blog.view', ['id' => $blog->id])}}">
-                            Apprendre encore plus
-                            <svg width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
-                                <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>
-                            </svg>
-                        </a>
+                            <span class="fontWeight400 colorPrimary">douc'heure</span>
+                        </h2>
+                        <p>
+                            {!! $content->about !!}
+                        </p>
+                        <a href="#" class="mo_btn mob_lg mob_shadow"><i class="icofont-long-arrow-right"></i>En savoir plus</a>
                     </div>
                 </div>
             </div>
-            @endforeach
         </div>
-    </div>
-</section>
-<!-- End:: Blog Section -->
+    </section>
+    <!-- End:: About Section -->
+    <!-- Begin:: Blog Section -->
+    <section class="commonSection blogSection" id="blog">
+        <div class="layer_img l_04 move_anim">
+            <img src="{{asset('front/images/bg/16.png')}}" alt=""/>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="sectionTitle text-center">
+                        <img src="{{asset('front/images/icons/2.png')}}" alt="">
+                        <h2>Galerie <span class="colorPrimary fontWeight400"></span></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                @foreach($blogs as $blog)
+                    <div class="col-lg-4 col-md-6">
+                        <div class="blog_item_01">
+                            <img src="{{asset($blog->image)}}" alt=""/>
+                            <div class="bp_content">
+                                <span>{{$blog->created_at->format('d-m-y')}}</span>
+                                <h3><a href="#">{{$blog->title}}</a></h3>
+                                <a class="lr_more" href="{{route('blog.view', ['id' => $blog->id])}}">
+                                    Apprendre encore plus
+                                    <svg width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+                                        <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    <!-- End:: Blog Section -->
 
 @endsection

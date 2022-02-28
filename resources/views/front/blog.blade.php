@@ -10,7 +10,7 @@
                         <img src="{{asset($blog->image)}}" alt=""/>
                     </div>
                     <div class="sic_details clearfix">
-                        <span class="bpdate">{{$blog->created_at->format('d m, Y')}}</span>
+
                         <h3>{{$blog->title}}</h3>
                         <div class="sic_the_content clearfix">
                             <p>

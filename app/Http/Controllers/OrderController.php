@@ -44,4 +44,23 @@ class OrderController extends Controller
          $reservation = Reservation::all();
         return view('admin.reservation.index',compact('reservation') );
     }
+    public function detailsReservation(){
+        $reservation = Reservation::where('status','=','0')->latest()->get();
+        return view('admin.reservation.status',compact('reservation') );
+    }
+    public function detailsReservationCompelte(){
+        $reservation = Reservation::where('status','=','1')->latest()->get();
+        return view('admin.reservation.status',compact('reservation') );
+    }
+    public function reservationStatus($id){
+        $reservation = Reservation::where('id','=',$id)->first();
+        $reservation->status = 1;
+        $reservation->update();
+        $notification = array(
+            'messege' => 'Ajouté avec succès!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+
 }

@@ -28,30 +28,37 @@
                     <div id="London" class="tabcontent">
                         <h3>Bonjour <b>{{Auth::user()->fname}} {{Auth::user()->lname}} , </b></h3>
                             <br>
-                        <h3> Bienvenue dans votre espace privé, vous y trouverez tout nos produits. à votre tarif praticiens.</h3>
+                        <h3>Bienvenue dans votre espace privé, vous y trouverez toutes vos réservations.</h3>
                         <br>
-                        <h3> Vous y touverez egalement vos commandes, et le détails de votre compte.</h3>
-                        <br>
+
                     </div>
                     <div id="reservation" class="tabcontent">
                     <div class="table-responsive">
                         <table class="table table-bordered table-hover">
                             <tbody>
                             <tr>
-                                <th>#</th>
-                                <th>Nom</th>
+
+                                <th>Titre</th>
                                 <th>Date</th>
                                 <th>Temps</th>
+                                <th>Statut</th>
+                                <th>Prix</th>
 
                             </tr>
                             @foreach($reservation as $key=> $row)
                                 <tr>
-                                    <td>{{$key+1}}</td>
-                                    <td>{{$row->fname.' '.$row->fname}}</td>
+
+                                    <td>{{$row->mtitle}}</td>
                                     <td>
                                         {{$row->date}}
                                     </td>
                                     <td>{{$row->time}} </td>
+                                    @if($row->status==0)
+                                    <td>Payer partiellement</td>
+                                    @else
+                                        <td>Paiement complet</td>
+                                    @endif
+                                    <td>{{$row->tprice}}€</td>
 
                                 </tr>
                             @endforeach

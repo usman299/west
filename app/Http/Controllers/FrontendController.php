@@ -6,7 +6,9 @@ use App\Blog;
 
 use App\Category;
 use App\Coupon;
+use App\Offers;
 use App\Order;
+use App\Place;
 use App\Product;
 use App\Reservation;
 use App\User;
@@ -37,7 +39,8 @@ class FrontendController extends Controller
         $content = Website::find(1);
         $products = Product::orderBy('created_at', 'DESC')->get();
         $blogs = Blog::orderBy('created_at', 'DESC')->get();
-        return view('front.index', compact('content', 'products', 'blogs'));
+        $offers =  Offers::orderBy('created_at', 'DESC')->get();
+        return view('front.index', compact('content', 'products', 'blogs','offers'));
     }
     public function products(){
         $products = Product::orderBy('created_at', 'DESC')->get();
@@ -217,10 +220,48 @@ class FrontendController extends Controller
         Session::forget('before_discount_total');
         return redirect()->back();
     }
-    public function reservation(){
+    public function preReservation($id,$price,$key){
 
         $content = Website::find(1);
-        return view('front.reservation', compact('content'));
+        $offers = Offers::where('id','=',$id)->first();
+        $place = Place::all();
+        $title='';
+        foreach(json_decode($offers->title) as $key1 => $item){
+            if($key==$key1){
+                $title=$item;
+                \Cart::remove($id);
+            }
+
+        }
+
+        return view('front.reservation', compact('content','price','offers','title','place','id'));
+    }
+    public function reservation($id,$price,$key){
+
+        $content = Website::find(1);
+        $offers = Offers::where('id','=',$id)->first();
+        $title='';
+        foreach(json_decode($offers->title) as $key1 => $item){
+            if($key==$key1){
+                $title=$item;
+            }
+
+        }
+        \Cart::remove($id);
+        $newPrice = $price*0.20;
+        \Cart::add($id, $title, $newPrice, 1);
+        $total = \Cart::getTotal();
+        $user = Auth::user();
+        if(isset($total)){
+            \Stripe\Stripe::setApiKey (env('STRIPE_SECRET_KEY'));
+            $payment_intent = \Stripe\PaymentIntent::create([
+                'amount' => ($total) *100,
+                'currency' => 'EUR'
+            ]);
+        }
+        $intent = $payment_intent->client_secret;
+
+        return view('front.checkout1', compact('content','price','offers','title','newPrice','user','intent'));
     }
     public function reservationStore(Request $request){
 
@@ -230,6 +271,44 @@ class FrontendController extends Controller
             return redirect()->back();
         }
         else {
+            $content = Website::find(1);
+            $offers = Offers::where('id','=',$request->id)->first();
+            $date = $request->date;
+            $time = $request->time;
+            $newPrice = $request->price*0.20;
+            $title = $request->title;
+            $price = $request->price;
+
+            \Cart::add($request->id, $title, $newPrice, 1);
+            $total = \Cart::getTotal();
+            $user = Auth::user();
+            if(isset($total)){
+                \Stripe\Stripe::setApiKey (env('STRIPE_SECRET_KEY'));
+                $payment_intent = \Stripe\PaymentIntent::create([
+                    'amount' => ($total) *100,
+                    'currency' => 'EUR'
+                ]);
+            }
+            $intent = $payment_intent->client_secret;
+
+            return view('front.checkout1', compact('content','offers','price','title','newPrice','user','intent','date','time'));
+        }
+    }
+
+    public function frontOffers($id){
+        $offers = Offers::where('id','=',$id)->first();
+        return view('front.offers', compact('offers'));
+    }
+    public function checkoutOffers($id,$price){
+        $offers = Offers::where('id','=',$id)->first();
+        return view('front.checkout1', compact('price','offers'));
+    }
+    public function fetchsubcategory(Request $request){
+        $place = Place::where('id', '=', $request->id)->first();
+        return response()->json($place);
+    }
+    public function reservationStore2(Request $request){
+
             $res = new Reservation();
             $res->user_id = Auth::user()->id;
             $res->fname = $request->fname;
@@ -240,9 +319,14 @@ class FrontendController extends Controller
             $res->date = $request->date;
             $res->time = $request->time;
             $res->email = $request->email;
+            $res->mtitle = $request->mtitle;
+            $res->tprice = $request->tprice;
+            $res->pay_price = $request->pay_price;
+            $res->rprice = $request->rprice;
+            $res->offer_id = $request->offer_id;
+            $res->order_no = "ON-".rand(100000000, 900000000);
             $res->save();
-            Session::flash('message', 'Réservation Confirmer!');
-            return redirect()->back();
-        }
+           return  view('front.compelte', compact('res'));
+
     }
 }

@@ -24,9 +24,15 @@ Route::get('/checkout', 'FrontendController@checkout')->name('checkout')->middle
 Route::post('/checkout/submit', 'FrontendController@checkoutSubmit')->name('checkout.submit')->middleware('auth');
 Route::get('/removecart/{id}', 'FrontendController@removecart')->name('removecart');
 
+
+Route::get('/front/offer/{id}', 'FrontendController@frontOffers')->name('front.offer');
 Route::get('/contact', 'FrontendController@contact')->name('front.contact');
-Route::get('/reservation', 'FrontendController@reservation')->name('front.reservation');
+Route::get('/contact', 'FrontendController@contact')->name('front.contact');
+Route::get('/checkout/offers/{id}/{price}', 'FrontendController@checkoutOffers')->name('checkout.offers');
+Route::get('/pre/reservation/{id}/{price}/{key}', 'FrontendController@preReservation')->name('front.pre.reservation');
+Route::get('/reservation/{id}/{price}/{key}', 'FrontendController@reservation')->name('front.reservation');
 Route::post('/reservation/store', 'FrontendController@reservationStore')->name('front.reservation.store');
+Route::post('/front/reservation/store', 'FrontendController@reservationStore2')->name('reservation.store');
 Route::get('/single/product/{id}', 'FrontendController@product')->name('front.product');
 Route::get('/blog/view/{id}', 'FrontendController@blog')->name('blog.view');
 Route::get('/products', 'FrontendController@products')->name('front.products');
@@ -40,7 +46,17 @@ Auth::routes();
 Route::group(['middleware' => ['auth', 'web', 'role']], function() {
 Route::get('/home', 'HomeController@index')->name('home');
 
+    Route::Post('/place/store', 'ContentController@placeStore')->name('place.store');
+    Route::get('/place/index', 'ContentController@placeIndex')->name('place.index');
+    Route::get('/place/delete/{id}', 'ContentController@placeDelete')->name('place.delete');
+
+    Route::get('/general/blog', 'ContentController@blog')->name('general.blog');
 Route::get('/general/blog', 'ContentController@blog')->name('general.blog');
+    Route::get('/admin/offers/create', 'ContentController@offersCreate')->name('admin.offers.create');
+Route::get('/admin/offers', 'ContentController@offers')->name('admin.offers');
+Route::post('/admin/offers/store', 'ContentController@offersStore')->name('admin.offers.store');
+Route::get('/admin/offers/edit/{id}', 'ContentController@offersEdit')->name('admin.offers.edit');
+Route::post('/admin/offers/update/{id}', 'ContentController@offersUpdate')->name('admin.offers.update');
 Route::get('/general/settings', 'ContentController@settings')->name('general.settings');
 Route::get('/general/about', 'ContentController@about')->name('general.about');
 Route::get('/general/video', 'ContentController@video')->name('general.video');
@@ -60,6 +76,9 @@ Route::get('/blog/delete/{id}', 'ContentController@blogdelete')->name('blog.dele
 
     Route::get('/admin/order/index', 'OrderController@index')->name('admin.order.index');
     Route::get('/admin/reservation', 'OrderController@adminReservation')->name('admin.reservation');
+    Route::get('/reservation/detials', 'OrderController@detailsReservation')->name('reservation.detials');
+    Route::get('/reservation/detials/complete', 'OrderController@detailsReservationCompelte')->name('reservation.detials.complete');
+    Route::get('/reservation/status/{id}', 'OrderController@reservationStatus')->name('reservation.status');
     Route::get('/admin/order/complete', 'OrderController@complete')->name('admin.order.complete');
     Route::get('/admin/order/view/{id}', 'OrderController@view')->name('admin.order.view');
 
@@ -92,7 +111,7 @@ Route::get('/blog/delete/{id}', 'ContentController@blogdelete')->name('blog.dele
     Route::post('/product/update/{id}', 'ProductController@update')->name('product.update');
 
 });
-
+Route::post('/fetchsubcategory', 'FrontendController@fetchsubcategory')->name('fetchsubcategory');
 Route::group(['middleware' => ['auth', 'web']], function() {
     Route::get('/order/index', 'FrontendController@orderDetails')->name('order.index');
 

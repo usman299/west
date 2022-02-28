@@ -26,6 +26,15 @@
                             <div class="col-md-6">
                                 <img src="{{asset($gs->vimage)}}" style="height: 100px" alt="">
                             </div>
+                            <div class="col-md-6">
+                                <label for="email_address">Image</label>
+                                <div class="form-group">
+                                    <input type="file" class="form-control" name="image">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <img src="{{asset($gs->image)}}" style="height: 100px" alt="">
+                            </div>
 
                         </div>
                         <br>

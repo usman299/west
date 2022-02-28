@@ -1,4 +1,5 @@
 @extends('layouts.front')
+@extends('layouts.front')
 @section('content')
     <!-- Begin:: Slider Section -->
     <section class="slider_01">
@@ -77,97 +78,18 @@
                 </div>
             </div>
             <div class="row">
+                @foreach($offers as $row)
                 <div class="col-lg-3 col-md-6">
                     <div class="serviceItem_01 text-center">
-                        <div class="ib_box">
-                            <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-                                 width="167.000000pt" height="147.000000pt" viewBox="0 0 167.000000 147.000000"
-                                 preserveAspectRatio="xMidYMid meet">
-                                <g transform="translate(0.000000,147.000000) scale(0.050000,-0.050000)"
-                                   fill="#252525" stroke="none">
-                                    <path d="M1257 2920 c-50 -9 -109 -25 -130 -35 -20 -11 -95 -25 -165 -31 -523
-                                   -45 -900 -630 -953 -1477 -43 -680 253 -1056 996 -1266 720 -204 1195 -98
-                                   1691 377 805 772 854 1763 105 2149 -412 213 -1153 349 -1544 283z"/>
-                                </g>
-                            </svg>
-                            <div class="bg_icon"><i class="mkov-stone"></i></div>
-                            <i class="mkov-stone"></i>
-                        </div>
-                        <p>
-                            Une nouvelle <br> thématique <br> développée <br> à chaque rencontre
+                       <img src="{{asset($row->image)}}" style="width: 200px; height: 150px;">
+                        <p style="margin-top: 20px;">
+                            <b>{{$row->title1}}</b>
                         </p>
+                        <a href="{{route('front.offer',['id'=>$row->id])}}" class="btn btn-default">Réserve</a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="serviceItem_01 sIlg text-center">
-                        <div class="ib_box">
-                            <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-                                 width="167.000000pt" height="147.000000pt" viewBox="0 0 167.000000 147.000000"
-                                 preserveAspectRatio="xMidYMid meet">
-                                <g transform="translate(0.000000,147.000000) scale(0.050000,-0.050000)"
-                                   fill="#252525" stroke="none">
-                                    <path d="M1572 2919 c-708 -80 -1193 -291 -1416 -614 -534 -777 474 -2293
-                                   1524 -2292 887 1 1576 436 1644 1037 101 889 -356 1757 -949 1804 -69 5 -160
-                                   22 -202 38 -98 37 -396 51 -601 27z"/>
-                                </g>
-                            </svg>
-                            <div class="bg_icon"><i class="mkov-abv"></i></div>
-                            <i class="mkov-candle"></i>
-                        </div>
-                        <p>
-                            Networking
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="serviceItem_01 sIlg text-center">
-                        <div class="ib_box">
-                            <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-                                 width="175.000000pt" height="152.000000pt" viewBox="0 0 175.000000 152.000000"
-                                 preserveAspectRatio="xMidYMid meet">
-                                <g transform="translate(0.000000,152.000000) scale(0.050000,-0.050000)"
-                                   fill="#252525" stroke="none">
-                                    <path d="M1115 2973 c-533 -182 -1118 -1037 -1091 -1597 31 -647 948 -1379
-                                   1694 -1351 1127 43 2049 1058 1675 1845 -197 414 -1177 1090 -1581 1090 -27 0
-                                   -102 14 -165 30 -170 44 -371 38 -532 -17z"/>
-                                </g>
-                            </svg>
-                            <div class="bg_icon"><i class="mkov-morter"></i></div>
-                            <i class="mkov-morter"></i>
-                        </div>
-                        <p>
-                            <A></A>Rifs préférentiels<br>
-                            aux formations
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="serviceItem_01 text-center">
-                        <div class="ib_box">
-                            <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-                                 width="167.000000pt" height="147.000000pt" viewBox="0 0 167.000000 147.000000"
-                                 preserveAspectRatio="xMidYMid meet">
-                                <g transform="translate(0.000000,147.000000) scale(0.050000,-0.050000)"
-                                   fill="#252525" stroke="none">
-                                    <path d="M1560 2919 c-1285 -156 -1790 -718 -1459 -1625 305 -836 1087 -1375
-                                   1835 -1266 826 122 1314 467 1386 982 122 875 -341 1790 -933 1843 -65 6 -154
-                                   24 -198 40 -97 37 -431 51 -631 26z"/>
-                                </g>
-                            </svg>
-                            <div class="bg_icon"><i class="mkov-bottle"></i></div>
-                            <i class="mkov-bottle"></i>
-                        </div>
-                        <p>
-                            Oujous informés sur : <br>
+                @endforeach
 
-                            les nouvelles techniques, <br>
-
-                            les nouveaux produits,<br>
-
-                            les nouveaux outils,
-                        </p>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="layer_img l_02 move_anim_two">
@@ -175,6 +97,7 @@
         </div>
     </div>
     <!-- End:: Service Section -->
+
     @guest
         <!-- Begin:: Espace Section -->
         <section class="commonSection aboutSection" id="espace">
@@ -195,7 +118,7 @@
                                 <img src="{{asset('front/images/bg/6.png')}}" alt=""/>
                             </div>
                             <div class="abImg float-right">
-                                <img src="{{asset('front/images/home_01/1.jpg')}}" alt="Makeover"/>
+                                <img src="{{asset($content->image)}}" alt="Makeover"/>
                             </div>
                         </div>
                     </div>
@@ -205,7 +128,7 @@
                                 Connectez-vous à <span class="fontWeight400 colorPrimary">Votre Compte</span>
                             </h2>
                             <p>
-                                Espace Praticien
+                                Espace prive
                             </p>
                             <a href="{{route('login')}}" class="mo_btn mob_lg mob_shadow"><i class="icofont-long-arrow-right"></i>Connexion</a>
                         </div>
@@ -225,7 +148,8 @@
                     <div class="">
                         <div class="video_banner">
                             <img style="width: 100%" src="{{asset($content->vimage)}}" alt=""/>
-                            <a href="{{$content->video}}" class="popup_video"><i class="icofont-play"></i></a>
+
+                            <a href="{{$content->video}}" class="popup_video"><i class="icofont-play"  id="myBtn" class="mybutton1"></i></a>
                         </div>
                     </div>
                 </div>
@@ -233,6 +157,7 @@
         </div>
     </section>
     <!-- End:: Appointment Section -->
+
 
     <!-- Begin:: About Section -->
     <section class="commonSection aboutSection" id="about">

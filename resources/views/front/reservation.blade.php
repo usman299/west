@@ -1,4 +1,7 @@
 @extends('layouts.front')
+<!-- CSRF Token -->
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
 <style>
     input[type="date"],   .nice-select {
         display: block;
@@ -32,7 +35,7 @@
                 <div class="col-lg-10 offset-lg-1">
                     <div class="sectionTitle text-center">
                         <img src="{{asset('front/images/icons/2.png')}}" alt="">
-                        <h5 class="primaryFont">Réservation</h5>
+                        <h5 class="primaryFont">{{$offers->title1}}</h5>
                         <h2> Réservez votre <span class="colorPrimary fontWeight400">Réservation</span></h2>
                         @if(Session::has('message'))
                             <span style="text-align: center;  color: red; font-size: 20px;" class="colorPrimary fontWeight400" >{{ Session::get('message') }}</span>
@@ -49,19 +52,11 @@
                                     <form action="{{route('front.reservation.store')}}" method="post" class="row" >
                                         @csrf
 
-                                        <div class="input-field col-lg-6">
-                                            <input class="required" type="text" name="fname" placeholder="Prénom" required>
-                                        </div>
-                                        <div class="input-field col-lg-6">
-                                            <input class="required" type="text" name="lname" placeholder="Nom de famille" required>
-                                        </div>
-                                        <div class="input-field col-lg-6">
-                                            <input class="required" type="email" name="email" placeholder="E-mail" required>
-                                        </div>
-                                        <div class="input-field col-lg-6">
+
+                                        <div class="input-field col-lg-12">
                                             <input class="required " type="date" name="date" required>
                                         </div>
-                                        <div class="input-field col-lg-6 select-area">
+                                        <div class="input-field col-lg-12 select-area">
                                             <select class="required" name="time" required>
                                                 <option value="">Sélectionnez l'heure</option>
 
@@ -92,21 +87,29 @@
 
                                             </select>
                                         </div>
-                                        <div class="input-field col-lg-6">
-                                            <input type="number" name="phone" placeholder="Téléphone" required>
+                                        <div class="input-field col-lg-12 select-area" style="margin-top: 20px;">
+                                            <select class="required select2" onchange="pricechange(this)" name="price2" required>
+                                                <option value="">Sélectionnez votre lieu</option>
+                                               @foreach($place as $row )
+                                                <option value="{{$row->id}}">{{$row->place}}</option>
+                                                @endforeach
+
+
+                                            </select>
+                                        </div>
+                                        <div class="input-field col-lg-12" style="margin-top: 20px;">
+                                            <input class="required price" id="price" type="number" name="price" value="{{$price}}" readonly>
+                                        </div>
+                                        <input type="hidden" value="{{$title}}" name="title">
+                                        <input type="hidden" value="{{$id}}" name="id">
+                                        <div class="input-field col-lg-12" style="margin-top: 20px;">
+                                            @auth
+                                                <button  type="submit" class="btn btn-default" >Vérifier la réservation</button>
+                                            @else
+                                                <a href="{{route('login')}}" class="btn btn-default">Vérifier la réservation </a>
+                                            @endif
                                         </div>
 
-                                        <div class="input-field col-lg-12">
-                                            <textarea class="required" name="address" placeholder="Votre adresse" required></textarea>
-                                        </div>
-                                        <div class="input-field col-lg-12" style="margin-top: 20px; margin-left: 250px;">
-                                            @auth
-                                            <button type="submit" class="mo_btn mob_lg"><i class="icofont-calendar"></i>Réserve</button>
-                                            @else
-                                                <a  href="{{route('login')}}" class="mo_btn mob_lg"><i class="icofont-calendar"></i>Réserve</a>
-                                            @endauth
-                                            <div class="con_message"></div>
-                                        </div>
                                     </form>
                                 </div>
                             </div>
@@ -119,4 +122,29 @@
     </section>
     <!-- End:: Contact Form Section -->
 
+    <script>
+        function pricechange(elem) {
+
+            let id = elem.value;
+            let x = {{$price}};
+            let _token   = $('meta[name="csrf-token"]').attr('content');
+
+            $.ajax({
+                url: "{{route('fetchsubcategory')}}",
+                type:"POST",
+                data:{
+                    id:id,
+                    _token: _token
+                },
+                success:function(response){
+                   let price =  response.price;
+                    let finalprice = parseInt(x)+parseInt(price);
+                    $(".price").val(finalprice);
+                    x=0;
+                },
+            });
+
+
+        }
+    </script>
 @endsection

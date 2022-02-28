@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Blog;
+use App\Offers;
+use App\Place;
 use App\Website;
 use Illuminate\Http\Request;
 
@@ -32,6 +34,7 @@ class ContentController extends Controller
        $blog = Blog::all();
        return view('admin.settings.blog', compact('blog'));
    }
+
    public function blogStore(Request $request){
        $blog = new Blog();
        $blog->title = $request->title;
@@ -153,6 +156,13 @@ class ContentController extends Controller
        $gs = Website::find(1);
        $gs->video = $request->video;
 
+       if ($request->hasfile('image')) {
+           $image1 = $request->file('image');
+           $name = time() . 'allimages' . '.' . $image1->getClientOriginalExtension();
+           $destinationPath = 'allimages/';
+           $image1->move($destinationPath, $name);
+           $gs->image = 'allimages/' . $name;
+       }
        if ($request->hasfile('vimage')) {
            $image1 = $request->file('vimage');
            $name = time() . 'allimages' . '.' . $image1->getClientOriginalExtension();
@@ -185,4 +195,101 @@ class ContentController extends Controller
        );
        return redirect()->back()->with($notification);
    }
+    public function offersCreate(){
+       return view('admin.settings.offers.create');
+    }
+    public function offers(){
+        $offers = Offers::all();
+        return view('admin.settings.offers.index', compact('offers'));
+    }
+    public function offersStore(Request $request){
+        $offers = new Offers();
+        $offers->title1 = $request->title1;
+        $offers->description = $request->description;
+
+        if ($request->hasfile('photo')) {
+            $image1 = $request->file('photo');
+            $name = time() . 'allimages' . '.' . $image1->getClientOriginalExtension();
+            $destinationPath = 'allimages/';
+            $image1->move($destinationPath, $name);
+            $offers->image = 'allimages/' . $name;
+        }
+        foreach($request->title as $title)
+        {
+            $data[] = $title;
+            $offers->title = json_encode($data);
+        }
+        foreach($request->price as $price)
+        {
+            $data2[] = $price;
+            $offers->price = json_encode($data2);
+        }
+        $offers->save();
+        $notification = array(
+            'messege' => 'Sauvegarde réussie!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+    public function offersEdit($id){
+        $offers = Offers::where('id','=',$id)->first();
+        return view('admin.settings.offers.edit', compact('offers'));
+    }
+    public function offersUpdate(Request $request,$id){
+        $offers = Offers::where('id','=',$id)->first();
+        $offers->title1 = $request->title1;
+        $offers->description = $request->description;
+
+        if ($request->hasfile('photo')) {
+            $image1 = $request->file('photo');
+            $name = time() . 'allimages' . '.' . $image1->getClientOriginalExtension();
+            $destinationPath = 'allimages/';
+            $image1->move($destinationPath, $name);
+            $offers->image = 'allimages/' . $name;
+        }
+        foreach($request->title as $title)
+        {
+            $data[] = $title;
+            $offers->title = json_encode($data);
+        }
+        foreach($request->price as $price)
+        {
+            $data2[] = $price;
+            $offers->price = json_encode($data2);
+        }
+        $offers->save();
+        $notification = array(
+            'messege' => 'Sauvegarde réussie!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+    public function placeIndex(){
+        $place = Place::latest()->get();
+        return view('admin.settings.place', compact('place'));
+    }
+    public function placeStore(Request $request){
+        $place = new Place();
+        $place->price = $request->price;
+        $place->place = $request->place;
+        $place->save();
+        $notification = array(
+            'messege' => 'Sauvegarde réussie!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+    public function placeDelete($id){
+        $place = Place::where('id','=',$id)->first();
+        $place->delete();
+        $notification = array(
+            'messege' => 'Supprimer le succès !',
+            'alert-type' => 'error'
+        );
+        $notification = array(
+            'messege' => 'Sauvegarde réussie!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
 }

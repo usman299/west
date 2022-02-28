@@ -132,12 +132,25 @@
                         <li><a href="{{route('general.mission')}}">Notre Mission</a></li>
                         <li><a href="{{route('general.video')}}">Video</a></li>
                         <li><a href="{{route('general.about')}}">À propos de nous</a></li>
+                        <li><a href="{{route('admin.offers')}}">Offres</a></li>
                         <li><a href="{{route('general.blog')}}">Galerie</a></li>
                     </ul>
                 </li>
 
                     <li class="{{ request()->is('admin/reservation/*') ? 'active open':'' }}">
                         <a href="{{route('admin.reservation')}}"  class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>Réservation</span> <span class="badge badge-success float-right"></span></a>
+
+                    </li>
+                    <li class="{{ request()->is('place/index/*') ? 'active open':'' }}">
+                        <a href="{{route('place.index')}}"  class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>Endroits</span> <span class="badge badge-success float-right"></span></a>
+
+                    </li>
+                    <li class="{{ request()->is('reservation/detialss/*') ? 'active open':'' }}">
+                        <a href="{{route('reservation.detials')}}"  class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>Réservation  attente</span> <span class="badge badge-success float-right"></span></a>
+
+                    </li>
+                    <li class="{{ request()->is('reservation/detials/complete/*') ? 'active open':'' }}">
+                        <a href="{{route('reservation.detials.complete')}}"  class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>Réservation complète</span> <span class="badge badge-success float-right"></span></a>
 
                     </li>
 

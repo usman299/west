@@ -159,6 +159,12 @@ $gs = \App\Website::find(1);
 
 
     </style>
+    <style>
+        .info_box {
+
+            margin: 0px 0 42px !important;
+        }
+    </style>
 </head>
 <body>
 

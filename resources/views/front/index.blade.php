@@ -1,4 +1,10 @@
 @extends('layouts.front')
+<style>
+    .info_box {
+
+        margin: 0px 0 42px !important;
+    }
+</style>
 @section('content')
     <!-- Begin:: Slider Section -->
     <section class="slider_01">

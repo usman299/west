@@ -134,15 +134,7 @@ $gs = \App\Website::find(1);
         .header-transparent {
             background-color: rgba(0,0,0,0.7);
         }
-        .mainMenu ul li a {
-            display: block;
-            font-size: 16px;
-            line-height: .8;
-            color: white !important;
-            font-weight: 500;
-            font-family: 'Playfair Display', serif;
-            position: relative;
-        }
+
         .header_01.fixedHeader {
 
             background: black !important;

@@ -285,7 +285,7 @@
                         <div class="blog_item_01">
                             <img src="{{asset($blog->image)}}" alt=""/>
                             <div class="bp_content">
-                                <span>{{$blog->created_at->format('d-m-y')}}</span>
+
                                 <h3><a href="#">{{$blog->title}}</a></h3>
                                 <a class="lr_more" href="{{route('blog.view', ['id' => $blog->id])}}">
                                     Apprendre encore plus

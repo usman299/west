@@ -6,8 +6,8 @@
             <div class="card">
                 <div class="header">
                     <h2><strong>Des offres</strong>
-                        <a href="{{route('admin.offers.create')}}" class="btn btn-primary"  >Ajouter un nouveau
-                        </a>
+{{--                        <a href="{{route('admin.offers.create')}}" class="btn btn-primary"  >Ajouter un nouveau--}}
+{{--                        </a>--}}
                     </h2>
                 </div>
                 <div class="body">

@@ -1,7 +1,6 @@
 @extends('layouts.front')
 @extends('layouts.front')
 @section('content')
-    <!-- Begin:: Slider Section -->
     <section class="slider_01">
         <div class="rev_slider_wrapper">
             <div id="rev_slider_1" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.4.1">

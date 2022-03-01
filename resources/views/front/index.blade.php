@@ -148,7 +148,7 @@
                         <div class="video_banner">
                             <img style="width: 100%" src="{{asset($content->vimage)}}" alt=""/>
 
-                            <a href="{{$content->video}}" class="popup_video"><i class="icofont-play"  id="myBtn" class="mybutton1"></i></a>
+                            <a href="https://www.youtube.com/embed/{{$content->video}}" class="popup_video"><i class="icofont-play"  id="myBtn" class="mybutton1"></i></a>
                         </div>
                     </div>
                 </div>

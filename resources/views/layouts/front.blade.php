@@ -971,7 +971,7 @@ $gs = \App\Website::find(1);
         /*end whatsap popup css*/
 
     </style>
-    @laravelPWA
+
 </head>
 <div id='whatsapp-chat' class='hide'>
     <div class='header-chat'>

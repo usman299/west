@@ -86,7 +86,7 @@
                                 <div class="col-md-6">
                                     <label for="email_address">Titre</label>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="offer_title" value="{{$gs->offer_title}}">
+                                        <input type="text" class="form-control " name="offer_title" value="{{$gs->offer_title}}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">

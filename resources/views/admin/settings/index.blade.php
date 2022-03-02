@@ -80,7 +80,7 @@
                                 </div>
 
                                 <div class="col-md-12">
-                                    <label for="email_address"><h4 style="text-align: center">Communauté</h4></label>
+                                    <label for="email_address"><h5 style="text-align: center!important;">Communauté</h5></label>
 
                                 </div>
                                 <div class="col-md-6">

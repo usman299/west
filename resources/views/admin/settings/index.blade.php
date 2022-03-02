@@ -78,6 +78,25 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="col-md-12">
+                                    <label for="email_address"><h4 style="text-align: center">Communauté</h4></label>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email_address">Titre</label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="offer_title" value="{{$gs->offer_title}}">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email_address"> Description</label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="offer_description" value="{{$gs->offer_description}}">
+                                    </div>
+                                </div>
+
+
                                 <button type="submit" class="btn btn-raised btn-primary btn-round waves-effect">Sauvegarder</button>
                             </form>
                         </div>

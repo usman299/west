@@ -104,6 +104,8 @@ class ContentController extends Controller
        $gs->instagram = $request->instagram;
        $gs->footer_text = $request->footer_text;
        $gs->discount = $request->discount;
+       $gs->offer_title = $request->offer_title;
+       $gs->offer_description = $request->offer_description;
        if ($request->hasfile('logo')) {
            $image1 = $request->file('logo');
            $name = time() . 'allimages' . '.' . $image1->getClientOriginalExtension();

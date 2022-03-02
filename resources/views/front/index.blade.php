@@ -68,9 +68,9 @@
                     <div class="sectionTitle text-center">
                         <img src="{{asset('front/images/icons/2.png')}}" alt=""/>
                         <h5 class="primaryFont">Communauté</h5>
-                        <h2>Bien-être Caraïbes</h2>
+                        <h2>{{$content->offer_title}}</h2>
                         <p>
-                            Une rencontre mensuel avec des experts (thérapeutes, fabricants, marketeurs
+                            {{$content->offer_description}}
                         </p>
                     </div>
                 </div>

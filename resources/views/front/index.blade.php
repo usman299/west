@@ -1,5 +1,4 @@
 @extends('layouts.front')
-@extends('layouts.front')
 @section('content')
     <section class="slider_01">
         <div class="rev_slider_wrapper">

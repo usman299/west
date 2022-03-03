@@ -35,14 +35,17 @@
                                         <div class="input-field col-lg-6">
                                             <input type="number" name="con_phone" placeholder="Téléphone">
                                         </div>
-                                        <div class="input-field col-lg-6 select-area">
-                                            <select class="required" name="selec">
-                                                <option selected="selected">Sélectionnez le sujet</option>
-                                                @foreach($categories as $cat)
-                                                    <option value="{{$cat->name}}">{{$cat->name}}</option>
-                                                @endforeach
-                                            </select>
+                                        <div class="input-field col-lg-6">
+                                            <input type="text" name="selec" placeholder="Sujette">
                                         </div>
+{{--                                        <div class="input-field col-lg-6 select-area">--}}
+{{--                                            <select class="required" name="selec">--}}
+{{--                                                <option selected="selected">Sélectionnez le sujet</option>--}}
+{{--                                                @foreach($categories as $cat)--}}
+{{--                                                    <option value="{{$cat->name}}">{{$cat->name}}</option>--}}
+{{--                                                @endforeach--}}
+{{--                                            </select>--}}
+{{--                                        </div>--}}
                                         <div class="input-field col-lg-12">
                                             <textarea class="required" name="con_message" placeholder="Votre message"></textarea>
                                         </div>

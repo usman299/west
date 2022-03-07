@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col-lg-5 offset-lg-1">
                     <h2 class="banner-title">Des offres</h2>
-                    <p class="breadcrumbs"><a href="{{route('front.index')}}">Accucil</a><span>/</span>Des offres</p>
+                    <p class="breadcrumbs"><a href="{{route('front.index')}}">ACCUEIL</a><span>/</span>Des offres</p>
                 </div>
                 <div class="col-lg-6 animated pnl">
                     <div class="page_layer">

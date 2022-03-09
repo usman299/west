@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Blog;
+use App\Home;
 use App\Offers;
+use App\Options;
 use App\Place;
 use App\Website;
 use Illuminate\Http\Request;
@@ -205,6 +207,7 @@ class ContentController extends Controller
         return view('admin.settings.offers.index', compact('offers'));
     }
     public function offersStore(Request $request){
+
         $offers = new Offers();
         $offers->title1 = $request->title1;
         $offers->description = $request->description;
@@ -225,6 +228,11 @@ class ContentController extends Controller
         {
             $data2[] = $price;
             $offers->price = json_encode($data2);
+        }
+        foreach($request->discount as $discount)
+        {
+            $data3[] = $discount;
+            $offers->discount = json_encode($data3);
         }
         $offers->save();
         $notification = array(
@@ -259,6 +267,11 @@ class ContentController extends Controller
             $data2[] = $price;
             $offers->price = json_encode($data2);
         }
+        foreach($request->discount as $discount)
+        {
+            $data3[] = $discount;
+            $offers->discount = json_encode($data3);
+        }
         $offers->save();
         $notification = array(
             'messege' => 'Sauvegarde réussie!',
@@ -268,7 +281,7 @@ class ContentController extends Controller
     }
     public function placeIndex(){
         $place = Place::latest()->get();
-        return view('admin.settings.place', compact('place'));
+        return view('admin.settings.city.index', compact('place'));
     }
     public function placeStore(Request $request){
         $place = new Place();
@@ -281,6 +294,23 @@ class ContentController extends Controller
         );
         return redirect()->back()->with($notification);
     }
+    public function placeEdit($id){
+        $place = Place::where('id','=',$id)->first();
+
+        return view('admin.settings.city.edit', compact('place'));
+    }
+
+    public function placeUpdate(Request $request,$id){
+        $place = Place::where('id','=',$id)->first();
+        $place->price = $request->price;
+        $place->place = $request->place;
+        $place->save();
+        $notification = array(
+            'messege' => 'Sauvegarde réussie!',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('place.index')->with($notification);
+    }
     public function placeDelete($id){
         $place = Place::where('id','=',$id)->first();
         $place->delete();
@@ -288,10 +318,94 @@ class ContentController extends Controller
             'messege' => 'Supprimer le succès !',
             'alert-type' => 'error'
         );
+
+        return redirect()->back()->with($notification);
+    }
+    public function homeIndex(){
+        $place = Home::latest()->get();
+        $city = Place::latest()->get();
+        return view('admin.settings.home.index', compact('place','city'));
+    }
+    public function homeStore(Request $request){
+        $place = new Home();
+        $place->price = $request->price;
+        $place->place_id = $request->place_id;
+        $place->save();
         $notification = array(
             'messege' => 'Sauvegarde réussie!',
             'alert-type' => 'success'
         );
+        return redirect()->back()->with($notification);
+    }
+    public function homeEdit($id){
+        $place = Home::where('id','=',$id)->first();
+        $city = Place::latest()->get();
+
+        return view('admin.settings.home.edit', compact('place','city'));
+    }
+
+    public function homeUpdate(Request $request,$id){
+        $place = Home::where('id','=',$id)->first();
+        $place->price = $request->price;
+        $place->place_id = $request->place_id;
+        $place->save();
+        $notification = array(
+            'messege' => 'Sauvegarde réussie!',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('home.index')->with($notification);
+    }
+    public function homeDelete($id){
+        $place = Home::where('id','=',$id)->first();
+        $place->delete();
+        $notification = array(
+            'messege' => 'Supprimer le succès !',
+            'alert-type' => 'error'
+        );
+
+        return redirect()->back()->with($notification);
+    }
+
+    public function optionIndex(){
+        $option = Options::latest()->get();
+        return view('admin.options.index', compact('option'));
+    }
+    public function optionStore(Request $request){
+        $option = new Options();
+        $option->price = $request->price;
+        $option->name = $request->name;
+        $option->save();
+        $notification = array(
+            'messege' => 'Sauvegarde réussie!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+    public function optionEdit($id){
+        $option = Options::where('id','=',$id)->first();
+
+        return view('admin.options.edit', compact('option'));
+    }
+
+    public function optionUpdate(Request $request,$id){
+        $option = Options::where('id','=',$id)->first();
+        $option->price = $request->price;
+        $option->name = $request->name;
+        $option->save();
+        $notification = array(
+            'messege' => 'Sauvegarde réussie!',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('option.index')->with($notification);
+    }
+    public function optionDelete($id){
+        $option = Options::where('id','=',$id)->first();
+        $option->delete();
+        $notification = array(
+            'messege' => 'Supprimer le succès !',
+            'alert-type' => 'error'
+        );
+
         return redirect()->back()->with($notification);
     }
 }

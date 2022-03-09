@@ -48,7 +48,21 @@ Route::get('/home', 'HomeController@index')->name('home');
 
     Route::Post('/place/store', 'ContentController@placeStore')->name('place.store');
     Route::get('/place/index', 'ContentController@placeIndex')->name('place.index');
+    Route::Post('/place/update/{id}', 'ContentController@placeUpdate')->name('place.update');
+    Route::get('/place/edit/{id}', 'ContentController@placeEdit')->name('place.edit');
     Route::get('/place/delete/{id}', 'ContentController@placeDelete')->name('place.delete');
+
+    Route::Post('/home/store', 'ContentController@homeStore')->name('home.store');
+    Route::get('/home/index', 'ContentController@homeIndex')->name('home.index');
+    Route::Post('/home/update/{id}', 'ContentController@homeUpdate')->name('home.update');
+    Route::get('/home/edit/{id}', 'ContentController@homeEdit')->name('home.edit');
+    Route::get('/home/delete/{id}', 'ContentController@homeDelete')->name('home.delete');
+
+    Route::Post('/option/store', 'ContentController@optionStore')->name('option.store');
+    Route::get('/option/index', 'ContentController@optionIndex')->name('option.index');
+    Route::Post('/option/update/{id}', 'ContentController@optionUpdate')->name('option.update');
+    Route::get('/option/edit/{id}', 'ContentController@optionEdit')->name('option.edit');
+    Route::get('/option/delete/{id}', 'ContentController@optionDelete')->name('option.delete');
 
     Route::get('/general/blog', 'ContentController@blog')->name('general.blog');
 Route::get('/general/blog', 'ContentController@blog')->name('general.blog');

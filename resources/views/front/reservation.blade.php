@@ -100,6 +100,16 @@
                                         <div class="input-field col-lg-12" style="margin-top: 20px;">
                                             <input class="required price" id="price" type="number" name="price" value="{{$price}}" readonly>
                                         </div>
+                                        <div class="input-field col-lg-12 select-area" style="margin-top: 20px;">
+                                            <select class="required select2" onchange="pricechange2(this)" name="option" >
+                                                <option value="">Sélectionnez les services optionnels</option>
+                                                @foreach($option as $row )
+                                                    <option value="{{$row->price}}">{{$row->name}}</option>
+                                                @endforeach
+
+
+                                            </select>
+                                        </div>
                                         <input type="hidden" value="{{$title}}" name="title">
                                         <input type="hidden" value="{{$id}}" name="id">
                                         <div class="input-field col-lg-12" style="margin-top: 20px;">
@@ -111,6 +121,21 @@
                                         </div>
 
                                     </form>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+
+                                <div class="woocommerce-checkout-review-order checkout_page_only" id="order_review">
+
+                                    <div ><label> <b>Titre</b></label><label ><b>:</b></label> <label style="margin-left: 70px;">{{$title}}</label></div>
+
+                                    <div ><label> <b>Facture</b></label><label ><b>:</b></label> <label style="margin-left: 70px;">{{$price}}€</label></div>
+                                    <div ><label> <b>Désactivé</b></label><label ><b>:</b></label> <label style="margin-left: 70px;">- {{($price/100)*$discount}}€</label></div>
+                                    <div ><label> <b>Remise</b></label><label ><b>:</b></label> <label style="margin-left: 70px;">{{$price - ($price/100)*$discount}} [{{$discount}}%]</label></div>
+
+                                    <div ><label> <b>50 % de salaire</b></label><label ><b>:</b></label> <label style="margin-left: 70px;">{{($price - ($price/100)*$discount)*0.50}}€</label></div>
+
+
                                 </div>
                             </div>
 
@@ -144,6 +169,18 @@
                 },
             });
 
+
+        }
+    </script>
+    <script>
+        function pricechange2(elem) {
+
+            let id = elem.value;
+            let x=0;
+             x =  $(".price").val();
+            let finalprice = parseInt(x)+parseInt(id);
+            $(".price").val(finalprice);
+            x=0;
 
         }
     </script>

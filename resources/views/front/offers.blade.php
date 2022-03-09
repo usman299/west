@@ -42,14 +42,17 @@
                 </div>
             </div>
             <!-- Begin:: Service Section -->
+            <?php
 
+            $discount = json_decode($offers->discount);
+            ?>
                     <div class="row">
 
                             <div class="col-md-4">
-                                @foreach(json_decode($offers->title) as $item1)
+                                @foreach(json_decode($offers->title) as  $key => $item1)
                                 <div class="package_item pl_area">
                                     <h5>
-                                        <a href="javascript:void(0);">{{$item1}}</a>
+                                        <a href="javascript:void(0);">{{$item1}}  [{{$discount[$key]}}%]</a>
                                     </h5>
                                 </div>
                                 @endforeach

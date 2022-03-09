@@ -26,30 +26,44 @@
                             <div class="col-md-2">
                                 <img src="{{asset($offers->image)}}" style="height: 100px" alt="">
                             </div>
-                            <div class="col-md-8" style="margin-top: 15px;">
+                            <div class="col-md-10" style="margin-top: 15px;">
                                 <div class="form-group">
-
+                                    <?php
+                                    $price = json_decode($offers->price);
+                                    $discount = json_decode($offers->discount);
+                                    ?>
                                     <div class="sizequantity">
+                                        @foreach(json_decode($offers->title) as $key => $title)
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                @foreach(json_decode($offers->title) as $item)
-                                                <input type="text" name="title[]" placeholder="Titre" value="{{$item}}" required class="form-control">
-                                                @endforeach
+                                            <div class="col-md-4">
+
+                                                <input type="text" name="title[]" placeholder="Titre" value="{{$title}}" required class="form-control">
+
                                             </div>
-                                            <div class="col-md-6">
-                                                @foreach(json_decode($offers->price) as $item)
-                                                <input  type="text" name="price[]" placeholder="Prix" value="{{$item}}" required class="form-control">
-                                                @endforeach
+                                            <div class="col-md-3">
+
+                                                <input  type="number" name="price[]" placeholder="Prix" value="{{$price[$key]}}" required class="form-control">
+
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input  type="number" name="discount[]" placeholder="Remises" value="{{$discount[$key] ?? ' '}}" required class="form-control">
+                                            </div>
+                                            <div class="col-md-2">
+
+                                                <a onclick="removerow(this)" class=" btn-danger btn-sm" data-toggle="tooltip" style="color: white; margin-top: " title="delete">
+                                                   <i class="zmdi zmdi-close"></i>
+                                                </a>
                                             </div>
                                         </div>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4" style="margin-top: 15px;">
+                            <div class="col-md-2" style="margin-top: 15px;">
                                 <div class="form-group">
 
                                     <a  onclick="addmorerow()" class=" btn-primary btn-sm " style="color: white" >Ajouter</a>
-                                    <a  onclick="removerow()" class=" btn-danger btn-sm" style="color: white"  >Supprimer</a>
+{{--                                    <a  onclick="removerow()" class=" btn-danger btn-sm" style="color: white"  >Supprimer</a>--}}
                                 </div>
                             </div>
 
@@ -74,17 +88,24 @@
     <script>
         function addmorerow(){
             $('.sizequantity').append('<div class="row">\n' +
-                '                                                <div class="col-md-6">\n' +
+                '                                                <div class="col-md-4">\n' +
                 '                                                    <input type="text" name="title[]" required placeholder="Titre" class="form-control">\n' +
                 '                                                </div>\n' +
-                '                                                <div class="col-md-6">\n' +
-                '                                                    <input  type="text" name="price[]" placeholder="Prix" required  class="form-control">\n' +
+                '                                                <div class="col-md-3">\n' +
+                '                                                    <input  type="number" name="price[]" placeholder="Prix" required  class="form-control">\n' +
+                '                                                </div>\n' +
+                '                                                <div class="col-md-3">\n' +
+                '                                                    <input  type="text" name="discount[]" placeholder="Remises" required  class="form-control">\n' +
                 '                                                </div>\n' +
                 '                                            </div>');
         }
         function removerow(){
             $('.sizequantity .row:last').remove();
         }
+        function removerow(elem){
+            $(elem).parent('div').parent('div').remove();
+        }
     </script>
+
 
 @endsection

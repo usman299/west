@@ -5,8 +5,8 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="header">
-                    <h2><strong>Des offres</strong>
-                        <a href="{{route('admin.offers.create')}}" class="btn btn-primary"  >Ajouter un nouveau
+                    <h2><strong>Des Villes</strong>
+                        <a href="#defaultModal" class="btn btn-primary"  data-toggle="modal" data-target="#defaultModal">Ajouter un nouveau
                         </a>
                     </h2>
                 </div>
@@ -16,26 +16,29 @@
                             <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Title</th>
-                                <th>Photo</th>
+                                <th>Villes</th>
+                                <th>Prix</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($offers as $row)
+                            @foreach($place as $row)
                                 <tr>
                                     <td>{{$row->id}}</td>
                                     <td>
-                                        {{$row->title1}}
+                                        {{$row->place}}
                                     </td>
-                                    <td><img src="{{asset($row->image)}}" height="50px" alt=""></td>
                                     <td>
-                                        <a href="{{route('admin.offers.edit' , ['id'=>$row->id])}}" class="btn btn-sm btn-success" data-toggle="tooltip" title="edit">
-                                            <i class="material-icons">brush</i>
+                                        {{$row->price}}€
+                                    </td>
+
+                                    <td>
+                                        <a href="{{route('place.edit' , ['id'=>$row->id])}}" class="btn btn-sm btn-success" data-toggle="tooltip" title="edit">
+                                             <i class="material-icons">brush</i>
+                                         </a>
+                                        <a href="{{route('place.delete' , ['id'=>$row->id])}}" id="delete" class="btn btn-sm btn-danger" data-toggle="tooltip" title="edit">
+                                            <i class="material-icons">clear</i>
                                         </a>
-                                        {{--                                        <a href="{{route('blog.delete' , ['id'=>$row->id])}}" id="delete" class="btn btn-sm btn-danger" data-toggle="tooltip" title="edit">--}}
-                                        {{--                                            <i class="material-icons">clear</i>--}}
-                                        {{--                                        </a>--}}
                                     </td>
                                 </tr>
                             @endforeach
@@ -53,33 +56,26 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="title" id="defaultModalLabel">Ajouter une nouvelle Des offres</h4>
+                    <h4 class="title" id="defaultModalLabel">Ajouter une nouvelle  Villes</h4>
                 </div>
                 <div class="modal-body">
-                    <form action="{{route('admin.offers.store')}}" method="post" enctype="multipart/form-data" data-parsley-validate>
+                    <form action="{{route('place.store')}}" method="post" enctype="multipart/form-data" data-parsley-validate>
                         @csrf
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="title"><b>Titre</b><span class="text-danger">*</span></label>
+                                <label for="title"><b> Villes Nom</b><span class="text-danger">*</span></label>
                                 <br>
-                                <input type="text"  name="title" required placeholder="Titre" class="form-control">
+                                <input type="text"  name="place" required placeholder="Villes Nom" class="form-control">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="title"><b>Image</b><span class="text-danger">*</span></label>
+                                <label for="title"><b>Prix</b><span class="text-danger">*</span></label>
                                 <br>
-                                <input type="file"  name="photo" required placeholder="Nom de catégorie" class="form-control">
+                                <input type="number"  name="price" required placeholder="Prix" class="form-control">
                             </div>
                         </div>
 
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="title"><b>Description</b><span class="text-danger">*</span></label>
-                                <br>
-                                <textarea required class="form-control" name="description" id="" cols="30" rows="10"></textarea>
-                            </div>
-                        </div>
                         <div class="col-md-12 pull-right">
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary btn-round waves-effect">Sauvegarder</button>

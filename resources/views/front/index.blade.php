@@ -82,7 +82,7 @@
                        <img src="{{asset($row->image)}}" style="width: 200px; height: 150px;">
                         <p style="margin-top: 20px;">
                             <b>{{$row->title1}}</b>
-                        </p>
+                        </p><br>
                         <a href="{{route('front.offer',['id'=>$row->id])}}" class="btn btn-default">Réserve</a>
                     </div>
                 </div>

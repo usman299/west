@@ -7,6 +7,7 @@ use App\Blog;
 use App\Category;
 use App\Coupon;
 use App\Offers;
+use App\Options;
 use App\Order;
 use App\Place;
 use App\Product;
@@ -224,8 +225,11 @@ class FrontendController extends Controller
 
         $content = Website::find(1);
         $offers = Offers::where('id','=',$id)->first();
+        $option = Options::all();
         $place = Place::all();
         $title='';
+        $discount='';
+
         foreach(json_decode($offers->title) as $key1 => $item){
             if($key==$key1){
                 $title=$item;
@@ -233,8 +237,16 @@ class FrontendController extends Controller
             }
 
         }
+        foreach(json_decode($offers->discount) as $key2 => $items){
+            if($key==$key2){
+                $discount = $items;
+                \Cart::remove($id);
+            }
 
-        return view('front.reservation', compact('content','price','offers','title','place','id'));
+        }
+
+
+        return view('front.reservation', compact('content','price','offers','title','place','id','discount','option'));
     }
     public function reservation($id,$price,$key){
 

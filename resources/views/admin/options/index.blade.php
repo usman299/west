@@ -5,7 +5,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="header">
-                    <h2><strong>Des endroits</strong>
+                    <h2><strong>Des Choix</strong>
                         <a href="#defaultModal" class="btn btn-primary"  data-toggle="modal" data-target="#defaultModal">Ajouter un nouveau
                         </a>
                     </h2>
@@ -16,27 +16,27 @@
                             <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Endroits</th>
+                                <th>Nom</th>
                                 <th>Prix</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($place as $row)
+                            @foreach($option as $row)
                                 <tr>
                                     <td>{{$row->id}}</td>
                                     <td>
-                                        {{$row->place}}
+                                        {{$row->name}}
                                     </td>
                                     <td>
-                                        {{$row->price}}
+                                        {{$row->price}}€
                                     </td>
 
                                     <td>
-                                        {{-- <a href="{{route('product.edit' , ['id'=>$row->id])}}" class="btn btn-sm btn-success" data-toggle="tooltip" title="edit">
-                                             <i class="material-icons">brush</i>
-                                         </a>--}}
-                                        <a href="{{route('place.delete' , ['id'=>$row->id])}}" id="delete" class="btn btn-sm btn-danger" data-toggle="tooltip" title="edit">
+                                        <a href="{{route('option.edit' , ['id'=>$row->id])}}" class="btn btn-sm btn-success" data-toggle="tooltip" title="edit">
+                                            <i class="material-icons">brush</i>
+                                        </a>
+                                        <a href="{{route('option.delete' , ['id'=>$row->id])}}" id="delete" class="btn btn-sm btn-danger" data-toggle="tooltip" title="edit">
                                             <i class="material-icons">clear</i>
                                         </a>
                                     </td>
@@ -56,16 +56,16 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="title" id="defaultModalLabel">Ajouter une nouvelle  endroits</h4>
+                    <h4 class="title" id="defaultModalLabel">Ajouter une nouvelle  </h4>
                 </div>
                 <div class="modal-body">
-                    <form action="{{route('place.store')}}" method="post" enctype="multipart/form-data" data-parsley-validate>
+                    <form action="{{route('option.store')}}" method="post" enctype="multipart/form-data" data-parsley-validate>
                         @csrf
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="title"><b> Endroits</b><span class="text-danger">*</span></label>
+                                <label for="title"><b>  Nom</b><span class="text-danger">*</span></label>
                                 <br>
-                                <input type="text"  name="place" required placeholder="Endroits" class="form-control">
+                                <input type="text"  name="name" required placeholder="Nom" class="form-control">
                             </div>
                         </div>
                         <div class="col-md-12">

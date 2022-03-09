@@ -28,11 +28,14 @@
 
                                     <div class="sizequantity">
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <input type="text" name="title[]" placeholder="Titre" required class="form-control">
                                             </div>
-                                            <div class="col-md-6">
-                                                <input  type="text" name="price[]" placeholder="Prix" required class="form-control">
+                                            <div class="col-md-4">
+                                                <input  type="number" name="price[]" placeholder="Prix" required class="form-control">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <input  type="number" name="discount[]" placeholder="Remises" required class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -67,12 +70,16 @@
     <script>
         function addmorerow(){
             $('.sizequantity').append('<div class="row">\n' +
-                '                                                <div class="col-md-6">\n' +
+                '                                                <div class="col-md-4">\n' +
                 '                                                    <input type="text" name="title[]" required placeholder="Titre" class="form-control">\n' +
                 '                                                </div>\n' +
-                '                                                <div class="col-md-6">\n' +
-                '                                                    <input  type="text" name="price[]" placeholder="Prix" required  class="form-control">\n' +
+                '                                                <div class="col-md-4">\n' +
+                '                                                    <input  type="number" name="price[]" placeholder="Prix" required  class="form-control">\n' +
                 '                                                </div>\n' +
+                '                                                <div class="col-md-4">\n' +
+                '                                                    <input  type="text" name="discount[]" placeholder="Remises" required  class="form-control">\n' +
+                '                                                </div>\n' +
+
                 '                                            </div>');
         }
         function removerow(){

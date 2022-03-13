@@ -138,12 +138,12 @@
 
                                 <div class="woocommerce-checkout-review-order checkout_page_only" id="order_review">
 
-                                    <div ><label> <b>Titre</b></label><label ><b>:</b></label> <label style="margin-left: 70px;">{{$title}}</label></div>
+                                    <div ><label> <b>Titre</b></label><label ><b>:</b></label> <label style="float: right;">{{$title}}</label></div>
 
-                                    <div ><label> <b>Prix</b></label><label ><b>:</b></label> <label style="margin-left: 70px;" >{{$price}}€</label></div>
-                                    <div style="display: none" class="city"  ><label> <b>Ville Prix</b></label><label ><b>:</b></label> <label style="margin-left: 70px;" class="cityprice" ></label></div>
-                                    <div style="display: none" class="home1"  ><label> <b>Domicile</b></label><label ><b>:</b></label> <label style="margin-left: 70px;" class="homeprice" ></label></div>
-                                    <div style="display: none" class="place"  ><label> <b>Total</b></label><label ><b>:</b></label> <label style="margin-left: 70px;" class="totalprice" ></label></div>
+                                    <div ><label> <b>Prix</b></label><label ><b>:</b></label> <label style="float: right;" >{{$price}}€</label></div>
+                                    <div style="display: none" class="city"  ><label> <b>Ville Prix</b></label><label ><b>:</b></label> <label style="float: right;" class="cityprice" ></label></div>
+                                    <div style="display: none" class="home1"  ><label> <b>Domicile</b></label><label ><b>:</b></label> <label style="float: right;" class="homeprice" ></label></div>
+                                    <div style="display: none" class="place"  ><label> <b>Total</b></label><label ><b>:</b></label> <label style="float: right;" class="totalprice" ></label></div>
 
 
                                 </div>

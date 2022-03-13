@@ -14,7 +14,7 @@
                 </div>
                 <div class="col-lg-6 animated pnl">
                     <div class="page_layer">
-                        <img src="{{asset($offers->image)}}"  style="width: 35pc;" alt=""/>
+                        <img src="{{asset($offers->image ??' ')}}"  style="width: 35pc;" alt=""/>
                     </div>
                 </div>
             </div>
@@ -33,7 +33,7 @@
                 <div class="col-lg-8">
                     <div class="sectionTitle text-left">
 {{--                        <img src="{{asset('front/images/icons/2.png')}}" alt="">--}}
-                        <h3 class="primaryFont">{{$offers->title1}}</h3>
+                        <h3 class="primaryFont">{{$offers->title1 ?? ' '}}</h3>
 
                         <p>
                             {{$offers->description}}
@@ -52,7 +52,7 @@
                                 @foreach(json_decode($offers->title) as  $key => $item1)
                                 <div class="package_item pl_area">
                                     <h5>
-                                        <a href="javascript:void(0);">{{$item1}}  [{{$discount[$key]}}%]</a>
+                                        <a href="javascript:void(0);">{{$item1 ?? ' '}}  [{{$discount[$key] ?? ' '}}%]</a>
                                     </h5>
                                 </div>
                                 @endforeach
@@ -63,7 +63,7 @@
                                     @foreach(json_decode($offers->price) as $item)
                                     <div class="package_item pr_area">
                                         <h5>
-                                            {{$item}}€
+                                            {{$item ?? ' '}}€
                                         </h5>
                                     </div>
                                     @endforeach

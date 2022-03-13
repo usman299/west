@@ -229,19 +229,23 @@ class FrontendController extends Controller
         $place = Place::all();
         $title='';
         $discount='';
+        if($offers->title) {
+            foreach (json_decode($offers->title) as $key1 => $item) {
+                if ($key == $key1) {
+                    $title = $item;
+                    \Cart::remove($id);
+                }
 
-        foreach(json_decode($offers->title) as $key1 => $item){
-            if($key==$key1){
-                $title=$item;
-                \Cart::remove($id);
             }
-
         }
-        foreach(json_decode($offers->discount) as $key2 => $items){
-            if($key==$key2){
-                $discount = $items;
-                \Cart::remove($id);
-            }
+        if($offers->discount){
+            foreach(json_decode($offers->discount) as $key2 => $items){
+                if($key==$key2){
+                    $discount = $items;
+                    \Cart::remove($id);
+                }
+        }
+
 
         }
 

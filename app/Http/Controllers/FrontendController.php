@@ -238,7 +238,7 @@ class FrontendController extends Controller
 
             }
         }
-        if($offers->discount){
+        if($offers->discount!=null){
             foreach(json_decode($offers->discount) as $key2 => $items){
                 if($key==$key2){
                     $discount = $items;

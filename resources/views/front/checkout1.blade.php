@@ -66,6 +66,8 @@
                                         <div class="input-field col-lg-6 select-area">
                                             <input type="hidden" value="{{$time}}" name="time">
                                             <input type="hidden" value="{{$offers->id}}" name="offer_id">
+                                            <input type="hidden" value="{{$place}}" name="place">
+                                            <input type="hidden" value="{{$home}}" name="home">
                                             <select class="required" name="time"  required disabled>
                                                 <option value="">Sélectionnez l'heure</option>
 
@@ -114,15 +116,15 @@
 
                                 <div class="woocommerce-checkout-review-order checkout_page_only" id="order_review">
 
-                                    <div ><label> <b>Title</b></label><label ><b>:</b></label> <label style="margin-left: 70px;">{{$title}}</label></div>
+                                    <div ><label> <b>Title</b></label><label ><b>:</b></label> <label style="float: right">{{$title}}</label></div>
                                     <input type="hidden" name="mtitle" value="{{$title}}">
-                                    <div ><label> <b>Facture</b></label><label ><b>:</b></label> <label style="margin-left: 70px;">{{$price}}€</label></div>
+                                    <div ><label> <b>Facture</b></label><label ><b>:</b></label> <label style="float: right">{{$price}}€</label></div>
                                     <input type="hidden" name="tprice" value="{{$price}}">
-                                    <div ><label> <b>20 % de salaire</b></label><label ><b>:</b></label> <label style="margin-left: 70px;">{{$newPrice}}€</label></div>
+                                    <div ><label> <b>50 %  salaire</b></label><label ><b>:</b></label> <label style="float: right">{{$newPrice}}€</label></div>
                                     <input type="hidden" name="pay_price" value="{{$newPrice}}">
-                                    <div ><label> <b>Restante</b></label><label ><b>:</b></label> <label style="margin-left: 70px;">{{$price -$newPrice }}€</label></div>
+                                    <div ><label> <b>Restante</b></label><label ><b>:</b></label> <label style="float: right">{{$price -$newPrice }}€</label></div>
                                     <input type="hidden" name="rprice" value="{{$price -$newPrice }}">
-                                    <div ><label> <b>Facture</b></label><label ><b>:</b></label> <label style="margin-left: 70px;">{{$newPrice }}€</label></div>
+                                    <div ><label> <b>Facture</b></label><label ><b>:</b></label> <label style="float: right">{{$newPrice }}€</label></div>
                                     <div class="woocommerce-checkout-payment" id="payment">
                                         <ul class="wc_payment_methods payment_methods methods">
                                             <li class="wc_payment_method payment_method_bacs">

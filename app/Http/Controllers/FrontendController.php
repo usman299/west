@@ -287,9 +287,12 @@ class FrontendController extends Controller
             $offers = Offers::where('id','=',$request->id)->first();
             $date = $request->date;
             $time = $request->time;
-            $newPrice = $request->price*0.20;
+            $newPrice = $request->price*0.50;
             $title = $request->title;
             $price = $request->price;
+            $place = $request->place;
+            $home = $request->home;
+
 
             \Cart::add($request->id, $title, $newPrice, 1);
             $total = \Cart::getTotal();
@@ -303,7 +306,7 @@ class FrontendController extends Controller
             }
             $intent = $payment_intent->client_secret;
 
-            return view('front.checkout1', compact('content','offers','price','title','newPrice','user','intent','date','time'));
+            return view('front.checkout1', compact('content','offers','price','title','newPrice','user','intent','date','time','place','home'));
         }
     }
 
@@ -336,6 +339,14 @@ class FrontendController extends Controller
             $res->pay_price = $request->pay_price;
             $res->rprice = $request->rprice;
             $res->offer_id = $request->offer_id;
+        $res->place = $request->place;
+        if($request->home!=0){
+            $res->home = 1;
+        }
+        else{
+            $res->home = 0;
+        }
+
             $res->order_no = "ON-".rand(100000000, 900000000);
             $res->save();
            return  view('front.compelte', compact('res'));

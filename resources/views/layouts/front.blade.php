@@ -1034,15 +1034,15 @@ $gs = \App\Website::find(1);
                 <a href="javascript:void(0)" class="menu_btn"><i class="icofont-navigation-menu"></i></a>
                 <nav class="mainMenu">
                     <ul>
-                        <li><a href="{{route('front.index')}}" style="font-size: 12px;">Accueil</a></li>
-                        <li><a href="{{route('front.index')}}#mission" style="font-size: 12px;">Notre Mission</a></li>
-                        <li><a href="{{route('front.index')}}#offers" style="font-size: 12px;">Nos Offres</a></li>
-                        <li><a href="{{route('front.index')}}#about" style="font-size: 12px;">À propos</a></li>
-                        <li><a href="{{route('front.index')}}#blog" style="font-size: 12px;">Galerie</a></li>
+                        <li><a href="{{route('front.index')}}" >Accueil</a></li>
+                        <li><a href="{{route('front.index')}}#mission" >Notre Mission</a></li>
+                        <li><a href="{{route('front.index')}}#offers" >Nos Offres</a></li>
+                        <li><a href="{{route('front.index')}}#about">À propos</a></li>
+                        <li><a href="{{route('front.index')}}#blog" >Galerie</a></li>
 {{--                        <li><a href="{{route('front.index')}}#réservation" style="font-size: 12px;">Réservation</a></li>--}}
-                        <li><a href="{{route('front.contact')}}" style="font-size: 12px;">Contacts</a></li>
+                        <li><a href="{{route('front.contact')}}" >Contacts</a></li>
                         @auth
-                            <li><a href="{{route('user.dashboard')}}" style="font-size: 12px;">{{Auth::user()->fname.' '.Auth::user()->lname}}</a>
+                            <li><a href="{{route('user.dashboard')}}" >{{Auth::user()->fname.' '.Auth::user()->lname}}</a>
 {{--                                <ul aria-expanded="false">--}}
 {{--                                    <li>--}}
 {{--                                        <a href="{{route('logout')}}" onclick="event.preventDefault();--}}
@@ -1060,7 +1060,7 @@ $gs = \App\Website::find(1);
 {{--                                </ul>--}}
                             </li>
                         @else
-                            <li><a href="{{route('login')}}" style="font-size: 12px;">Connexion</a></li>
+                            <li><a href="{{route('login')}}" >Connexion</a></li>
                         @endauth
 {{--                        @guest--}}
 {{--                        <li><a href="{{route('front.index')}}#espace">Espace Praticien</a></li>--}}

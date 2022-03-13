@@ -155,15 +155,11 @@
                         <a href="{{route('option.index')}}"  class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>Choix</span> <span class="badge badge-success float-right"></span></a>
 
                     </li>
-                    <li>
+                    <li class="{{ request()->is('/reservation/detials*') ? 'active open':'' }}">
+                        <a href="{{route('reservation.detials')}}"  class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>Client</span> <span class="badge badge-success float-right"></span></a>
 
-                        <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-apps"></i><span> Utilisateur</span> <span class="badge badge-success float-right"></span></a>
-                        <ul class="ml-menu">
-                            <li><a href="{{route('reservation.detials')}}">Attente</a></li>
-                            <li><a href="{{route('reservation.detials.complete')}}">Complète</a></li>
-
-                        </ul>
                     </li>
+
 
 
 

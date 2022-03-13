@@ -37,7 +37,7 @@ Route::get('/single/product/{id}', 'FrontendController@product')->name('front.pr
 Route::get('/blog/view/{id}', 'FrontendController@blog')->name('blog.view');
 Route::get('/products', 'FrontendController@products')->name('front.products');
 Route::post('/fetchsubcategory', 'CategoryController@fetchsubcategory')->name('fetchsubcategory');
-
+Route::post('/fetchcityhome', 'CategoryController@fetchcityhome')->name('fetchcityhome');
 Route::get('/admin/login', 'FrontendController@admin')->name('admin.login');
 
 Auth::routes();
@@ -91,10 +91,15 @@ Route::get('/blog/delete/{id}', 'ContentController@blogdelete')->name('blog.dele
     Route::get('/admin/order/index', 'OrderController@index')->name('admin.order.index');
     Route::get('/admin/reservation', 'OrderController@adminReservation')->name('admin.reservation');
     Route::get('/reservation/detials', 'OrderController@detailsReservation')->name('reservation.detials');
+    Route::get('/view/reservation/detials/{id}', 'OrderController@viewDetailsReservation')->name('view.reservation.detials');
     Route::get('/reservation/detials/complete', 'OrderController@detailsReservationCompelte')->name('reservation.detials.complete');
+    Route::get('/reservation/status/{id}', 'OrderController@reservationStatus')->name('reservation.status');
     Route::get('/reservation/status/{id}', 'OrderController@reservationStatus')->name('reservation.status');
     Route::get('/admin/order/complete', 'OrderController@complete')->name('admin.order.complete');
     Route::get('/admin/order/view/{id}', 'OrderController@view')->name('admin.order.view');
+//pending paymant
+    Route::post('/admin/pending/paymant', 'OrderController@pendingPaymant')->name('admin.pending.paymant');
+    Route::get('/admin/reservation/history/{r_id}/{id}', 'OrderController@reservationHistory')->name('reservation.history');
 
     Route::get('/admin/order/status/{id}', 'OrderController@status')->name('admin.order.status');
 

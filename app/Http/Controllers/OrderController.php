@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Order;
 use App\Reservation;
+use App\Wallet;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -45,8 +46,15 @@ class OrderController extends Controller
         return view('admin.reservation.index',compact('reservation') );
     }
     public function detailsReservation(){
-        $reservation = Reservation::where('status','=','0')->latest()->get();
-        return view('admin.reservation.status',compact('reservation') );
+        $users = Reservation::where('status','=','0')->pluck('user_id')->unique();
+
+        return view('admin.reservation.user',compact('users') );
+    }
+    public function viewDetailsReservation($id){
+
+        $reservation = Reservation::latest()->where('user_id','=',$id)->get();
+
+        return view('admin.reservation.detials',compact('reservation','id') );
     }
     public function detailsReservationCompelte(){
         $reservation = Reservation::where('status','=','1')->latest()->get();
@@ -61,6 +69,41 @@ class OrderController extends Controller
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);
+    }
+    public function pendingPaymant(Request $request){
+
+         $walet = new Wallet();
+         $res = Reservation::where('id','=',$request->reservation_id)->first();
+
+            if($res->rprice>=$request->price){
+                $res->rprice = $res->rprice - $request->price;
+                $res->save();
+                $walet->r_price = $res->rprice;
+                $walet->user_id = $request->user_id;
+                $walet->pay_price = $request->price;
+                $walet->pay_total = $res->tprice - $res->rprice;;
+                $walet->reservation_id = $request->reservation_id;
+                $walet->save();
+                $notification = array(
+                    'messege' => 'Ajouté avec succès!',
+                    'alert-type' => 'success'
+                );
+                return redirect()->back()->with($notification);
+
+            }
+            else{
+                $notification = array(
+                    'messege' => 'Votre prix est élevé!',
+                    'alert-type' => 'error'
+                );
+                return redirect()->back()->with($notification);
+            }
+
+
+    }
+    public function reservationHistory($r_id ,$id){
+        $reservation = Wallet::where('reservation_id','=',$r_id)->where('user_id','=',$id)->get();
+        return view('admin.reservation.history',compact('reservation'));
     }
 
 }

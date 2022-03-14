@@ -2,7 +2,7 @@
 @section('content')
     <!-- Basic Examples -->
     <div class="row clearfix">
-        <div class="col-lg-6 col-md-9 col-sm-12" style="margin-left: 200px;">
+        <div class="col-lg-6 col-md-9 col-sm-12" >
             <div class="card">
                 <div class="body text-center">
                    <?php $user = \App\User::where('id','=',$res->user_id)->first();
@@ -12,7 +12,27 @@
                        <h6>Temps : {{$res->time}} </h6>
                        <h6>Date : {{$res->date}} </h6>
 
-                    <small>{{$res->address}},<br> {{$place->place}} {{$res->phone}}</small>
+                    <small>{{$res->address ?? ' '}},<br> {{$place->place ??' '}} {{$res->phone}}</small>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-9 col-sm-12" >
+            <div class="card">
+                <div class="body text-center">
+                    <?php $user = \App\User::where('id','=',$res->user_id)->first();
+                    $place = \App\Place::where('id','=',$res->place)->first();
+                    ?>
+                    <h6>{{$user->fname .' '. $user->lname}}</h6>
+                    <h6>Totale : {{$res->tprice}}€ </h6>
+
+                        @if($res->option)
+                            @foreach(json_decode($res->option) as $key => $opt)
+                    <h6>{{$key+1}} : {{$opt}} </h6>
+                        @endforeach
+                        @endif
+
+
 
                 </div>
             </div>

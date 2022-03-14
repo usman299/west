@@ -3,13 +3,13 @@
     <div class="row clearfix">
         <div class="col-lg-12">
             <div class="card">
-                <div class="body m-b-10">
-                    <ul class="nav nav-tabs padding-0">
+{{--                <div class="body m-b-10">--}}
+{{--                    <ul class="nav nav-tabs padding-0">--}}
 
-                        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#List">Réservation</a></li>
+{{--                        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#List">Réservation</a></li>--}}
 {{--                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Addnew">Ajouter nouveau</a></li>--}}
-                    </ul>
-                </div>
+{{--                    </ul>--}}
+{{--                </div>--}}
             </div>
             <!-- Tab panes -->
             <div class="tab-content">
@@ -29,7 +29,7 @@
                                         <th>Prix</th>
                                         <th>Prix ​​restant</th>
                                         <th>Ville</th>
-                                        <th>Domicile</th>
+
                                         <th>Statut</th>
                                         <th>Action</th>
                                     </tr>
@@ -49,22 +49,19 @@
 
                                             <?php $place = \App\Place::where('id','=',$row->place)->first();?>
                                             <td>{{$place->place ?? ' '}}</td>
-                                            @if($row->home==0)
-                                                <th>Non</th>
-                                            @else
-                                                <th>Oui</th>
-                                            @endif
-                                            @if($row->status==0)
-                                                <td>Payer partiellement</td>
-                                            @else
+
+                                            @if($row->rprice==0)
                                                 <td>Paiement complet</td>
+
+                                            @else
+                                                <td>Payer partiellement</td>
                                             @endif
 
                                             <td>
 
-                                                    <a href="{{route('reservation.status' , ['id'=>$row->id])}}" class="btn btn-sm btn-primary" data-toggle="tooltip" >
-                                                        <i class="zmdi zmdi-edit"></i>
-                                                    </a>
+{{--                                                    <a href="{{route('reservation.status' , ['id'=>$row->id])}}" class="btn btn-sm btn-primary" data-toggle="tooltip" >--}}
+{{--                                                        <i class="zmdi zmdi-edit"></i>--}}
+{{--                                                    </a>--}}
                                                     <a href="{{route('reservation.history' ,['r_id'=>$row->id,'id'=>$id] )}}" class="btn btn-sm btn-default" data-toggle="tooltip" >
                                                         <i class="zmdi zmdi-eye"></i>
                                                     </a>

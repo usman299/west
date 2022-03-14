@@ -103,7 +103,8 @@ class OrderController extends Controller
     }
     public function reservationHistory($r_id ,$id){
         $reservation = Wallet::where('reservation_id','=',$r_id)->where('user_id','=',$id)->get();
-        return view('admin.reservation.history',compact('reservation'));
+        $res = Reservation::where('id','=',$r_id)->first();
+        return view('admin.reservation.history',compact('reservation','r_id','id','res'));
     }
 
 }

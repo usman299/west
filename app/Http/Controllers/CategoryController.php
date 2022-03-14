@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Home;
+use App\Options;
 use App\SubCategory;
 use Illuminate\Http\Request;
 
@@ -71,5 +72,9 @@ class CategoryController extends Controller
     public function fetchcityhome(Request $request){
         $cityhome = Home::where('place_id', '=', $request->id)->first();
         return response()->json($cityhome);
+    }
+    public function fetchoptions(Request $request){
+        $price = Options::where('id', '=', $request->id)->first();
+        return response()->json($price);
     }
 }

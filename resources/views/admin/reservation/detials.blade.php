@@ -7,7 +7,7 @@
                     <ul class="nav nav-tabs padding-0">
 
                         <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#List">Réservation</a></li>
-                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Addnew">Ajouter nouveau</a></li>
+{{--                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Addnew">Ajouter nouveau</a></li>--}}
                     </ul>
                 </div>
             </div>
@@ -21,13 +21,14 @@
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
                                     <tr>
+                                        <th>#</th>
                                         <th>Nom</th>
                                         <th>Titre</th>
                                         <th>Date</th>
                                         <th>Temps</th>
                                         <th>Prix</th>
                                         <th>Prix ​​restant</th>
-                                        <th>Lieu</th>
+                                        <th>Ville</th>
                                         <th>Domicile</th>
                                         <th>Statut</th>
                                         <th>Action</th>
@@ -36,6 +37,7 @@
                                     <tbody>
                                     @foreach($reservation as $key=> $row)
                                         <tr>
+                                            <td>{{$key+1}}</td>
                                             <td>{{$row->fname .' '. $row->lname}}</td>
                                             <td>{{$row->mtitle}}</td>
                                             <td>
@@ -46,7 +48,7 @@
                                             <td>{{$row->rprice}}€</td>
 
                                             <?php $place = \App\Place::where('id','=',$row->place)->first();?>
-                                            <td>{{$place->place ?? ' '}}({{$place->price ?? ' '}}€)</td>
+                                            <td>{{$place->place ?? ' '}}</td>
                                             @if($row->home==0)
                                                 <th>Non</th>
                                             @else

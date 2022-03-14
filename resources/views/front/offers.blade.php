@@ -72,7 +72,7 @@
                             @foreach(json_decode($offers->price) as $key => $item)
                                 <div class="package_item pr_area">
                                     <h5>
-                                       <a href="{{route('front.pre.reservation',['id'=>$offers->id, 'price'=>$item,'key'=>$key])}}" style="color: white" class="btn btn-default">Réserve</a>
+                                       <a href="{{route('front.pre.reservation',['id'=>$offers->id, 'price'=>$item,'key'=>$key,'discount'=>$discount[$key]])}}" style="color: white" class="btn btn-default">Réserve</a>
                                     </h5>
                                 </div>
                             @endforeach

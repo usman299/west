@@ -43,6 +43,8 @@
                                 <th>Temps</th>
                                 <th>Statut</th>
                                 <th>Prix</th>
+                                <th>Payer</th>
+                                <th>Prix Restant</th>
 
                             </tr>
                             @foreach($reservation as $key=> $row)
@@ -59,6 +61,9 @@
                                         <td>Paiement complet</td>
                                     @endif
                                     <td>{{$row->tprice}}€</td>
+                                    <td>{{$row->pay_price}}€</td>
+                                    <td>{{$row->rprice}}€</td>
+
 
                                 </tr>
                             @endforeach

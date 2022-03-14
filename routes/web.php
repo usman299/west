@@ -29,7 +29,7 @@ Route::get('/front/offer/{id}', 'FrontendController@frontOffers')->name('front.o
 Route::get('/contact', 'FrontendController@contact')->name('front.contact');
 Route::get('/contact', 'FrontendController@contact')->name('front.contact');
 Route::get('/checkout/offers/{id}/{price}', 'FrontendController@checkoutOffers')->name('checkout.offers');
-Route::get('/pre/reservation/{id}/{price}/{key}', 'FrontendController@preReservation')->name('front.pre.reservation');
+Route::get('/pre/reservation/{id}/{price}/{key}/{discount}', 'FrontendController@preReservation')->name('front.pre.reservation');
 Route::get('/reservation/{id}/{price}/{key}', 'FrontendController@reservation')->name('front.reservation');
 Route::post('/reservation/store', 'FrontendController@reservationStore')->name('front.reservation.store');
 Route::post('/front/reservation/store', 'FrontendController@reservationStore2')->name('reservation.store');
@@ -37,6 +37,7 @@ Route::get('/single/product/{id}', 'FrontendController@product')->name('front.pr
 Route::get('/blog/view/{id}', 'FrontendController@blog')->name('blog.view');
 Route::get('/products', 'FrontendController@products')->name('front.products');
 Route::post('/fetchsubcategory', 'CategoryController@fetchsubcategory')->name('fetchsubcategory');
+Route::post('/fetchoptions', 'CategoryController@fetchoptions')->name('fetchoptions');
 Route::post('/fetchcityhome', 'CategoryController@fetchcityhome')->name('fetchcityhome');
 Route::get('/admin/login', 'FrontendController@admin')->name('admin.login');
 

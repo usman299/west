@@ -124,6 +124,8 @@
                                     <input type="hidden" name="pay_price" value="{{$newPrice}}">
                                     <div ><label> <b>Restante</b></label><label ><b>:</b></label> <label style="float: right">{{$price -$newPrice }}€</label></div>
                                     <input type="hidden" name="rprice" value="{{$price -$newPrice }}">
+                                    <input type="hidden" name="address" value="{{$address }}">
+                                    <input type="hidden" name="option" value="{{$options }}">
                                     <div ><label> <b>Facture</b></label><label ><b>:</b></label> <label style="float: right">{{$newPrice }}€</label></div>
                                     <div class="woocommerce-checkout-payment" id="payment">
                                         <ul class="wc_payment_methods payment_methods methods">

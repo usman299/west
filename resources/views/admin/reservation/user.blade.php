@@ -18,6 +18,7 @@
                                 <th>Prénom</th>
                                 <th>Nom de famille</th>
                                 <th>E-mail</th>
+                                <th>Téléphoner</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -30,6 +31,9 @@
                                     <td>{{$user->lname}}</td>
                                     <td>
                                         {{$user->email}}
+                                    </td>
+                                    <td>
+                                        {{$user->phone}}
                                     </td>
 
 

@@ -16,16 +16,16 @@
 
 <div class="container">
     <div class="row text-center">
-        <div class="col-sm-6 col-sm-offset-3">
+        <div class="col-sm-12 " style="text-align: center">
             <br><br> <h2 style="color:#0fad00">Succès</h2>
             <img height="30px" src="https://cdn1.iconfinder.com/data/icons/warnings-and-dangers/400/Warning-02-512.png">
-            <h3>Cher(e), {{$res->fname}}</h3>
+            <h3>Cher(e), {{$res->fname .' ' . $res->lname}}</h3>
             <p style="font-size:20px;color:#5C5C5C;">Merci pour le paiement, .
             </p>
-            <p style="font-size:20px;color:#5C5C5C;">Numéro de commande "{{$res->order_number}}".
+            <p style="font-size:20px;color:#5C5C5C;">Numéro de commande "{{$res->order_no}}".
             </p>
 
-            <a href="{{route('front.index')}}" style="margin-top: 50px;" class="btn btn-success">Le palais des femmes </a>
+            <a href="{{route('front.index')}}" style="margin-top: 50px;" class="btn btn-success">De retour à la maison</a>
             <br><br>
         </div>
 

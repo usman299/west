@@ -7,7 +7,14 @@
         position: relative;
         padding-left: 22px;
          cursor: pointer;
+
          display: inline-block!important;
+    }
+    input[type="radio"], input[type="checkbox"] {
+        box-sizing: border-box;
+        padding: 0;
+        height: 18px!important;
+        width: 30px!important;
     }
     input[type="date"],   .nice-select {
         display: block;
@@ -107,19 +114,22 @@
                                                 <input type="checkbox"  name="home" onclick="pricehomechange(this)" data-index="0" id="shipping_method_0_free_shipping2" value="0" class="shipping_method home"><label for="shipping_method_0_free_shipping2">Veux-tu être à la maison</label>
 
                                         </div>
+                                        <div class="input-field col-lg-12 select-area display1" style="margin-top: 20px; display: none;">
+                                            <input class="required"  type="text" placeholder="Votre adresse complète" name="address" value="" >
+                                        </div>
                                         <div class="input-field col-lg-12" style="margin-top: 20px;">
-                                            <input class="required price" id="price" type="number" name="price" value="{{$price}}" readonly>
+                                            <input class="required price" id="price" type="number" name="price" value="{{$price-(($price/100)*$discount)}}" readonly>
                                         </div>
 
-{{--                                        <div class="col-lg-12" style="margin-top: 20px;">--}}
-{{--                                            <h5>Sélectionnez les services optionnels</h5>--}}
+                                        <div class="col-lg-12" style="margin-top: 20px;">
+                                            <h5>Sélectionnez les services optionnels</h5>
 
-{{--                                            @foreach($option as $key=> $row)--}}
-{{--                                                <input type="checkbox" id="shipping_method_{{$key+1}}_free_shipping{{$key+1}}" data-index="{{$key+1}}" name="option[]"   value="{{$row->id}}" class="shipping_method " ><label for="shipping_method_{{$key+1}}_free_shipping{{$key+1}}" >{{$row->name}}</label>--}}
-{{--                                            @endforeach--}}
+                                            @foreach($option as $key=> $row)
+                                                <input type="checkbox"  name="option[]" onclick="optionPrice(this)" class="checkbox"  value="{{$row->id}}">{{$row->name}}
+                                            @endforeach
 
+                                        </div>
 
-{{--                                        </div>--}}
                                         <input type="hidden" value="{{$title}}" name="title">
                                         <input type="hidden" value="{{$id}}" name="id">
                                         <div class="input-field col-lg-12" style="margin-top: 20px;">
@@ -140,9 +150,11 @@
 
                                     <div ><label> <b>Titre</b></label><label ><b>:</b></label> <label style="float: right;">{{$title}}</label></div>
 
-                                    <div ><label> <b>Prix</b></label><label ><b>:</b></label> <label style="float: right;" >{{$price}}€</label></div>
+                                    <div ><label> <b>Prix</b></label><label ><b>:</b></label> <label style="float: right;" ><del>{{$price}}€</del>  {{$price-(($price/100)*$discount)}}€</label></div>
+                                    <div ><label> <b>Remise</b></label><label ><b>:</b></label> <label style="float: right;" >-{{($price/100)*$discount}}€</label></div>
                                     <div style="display: none" class="city"  ><label> <b>Ville Prix</b></label><label ><b>:</b></label> <label style="float: right;" class="cityprice" ></label></div>
                                     <div style="display: none" class="home1"  ><label> <b>Domicile</b></label><label ><b>:</b></label> <label style="float: right;" class="homeprice" ></label></div>
+                                    <div class="option"  ></div>
                                     <div style="display: none" class="place"  ><label> <b>Total</b></label><label ><b>:</b></label> <label style="float: right;" class="totalprice" ></label></div>
 
 
@@ -161,7 +173,7 @@
         function pricechange(elem) {
 
             let id = elem.value;
-            let x = {{$price}};
+            let x = {{$price-(($price/100)*$discount)}};
             let _token   = $('meta[name="csrf-token"]').attr('content');
 
             $.ajax({
@@ -212,6 +224,7 @@
                     let finalprice = parseInt(x)+parseInt(price);
                     $(".home1").show();
                     $(".homeprice").html(price+'€');
+                    $(".display1").show();
                     $(".totalprice").html(finalprice+'€');
                     $(".price").val(finalprice);
 
@@ -221,14 +234,34 @@
         }
     </script>
     <script>
-        function pricechange2(elem) {
+        function optionPrice(elem) {
 
             let id = elem.value;
-            let x=0;
-             x =  $(".price").val();
-            let finalprice = parseInt(x)+parseInt(id);
-            $(".price").val(finalprice);
-            x=0;
+            let x =  $(".price").val();
+
+
+            let _token   = $('meta[name="csrf-token"]').attr('content');
+
+            $.ajax({
+                url: "{{route('fetchoptions')}}",
+                type:"POST",
+                data:{
+                    id:id,
+                    _token: _token
+                },
+                success:function(response){
+                    let optionPrice = response.price;
+                    let optionid =response.id;
+                    let optionName = response.name;
+                    $('.option').append(' <div class="hide'+optionid+'"><label> <b >'+optionName+'</b></label><label ><b>:</b></label> <label style="float: right;"  >'+optionPrice+'</label></div><br>');
+
+                    let finalprice = parseInt(x)+parseInt(optionPrice);
+
+                    $(".totalprice").html(finalprice+'€');
+                    $(".price").val(finalprice);
+                    x=0;
+                },
+            });
 
         }
     </script>

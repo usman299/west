@@ -13,6 +13,7 @@ use App\Place;
 use App\Product;
 use App\Reservation;
 use App\User;
+use App\Wallet;
 use App\Website;
 use Darryldecode\Cart\CartCondition;
 use Illuminate\Http\Request;
@@ -221,7 +222,7 @@ class FrontendController extends Controller
         Session::forget('before_discount_total');
         return redirect()->back();
     }
-    public function preReservation($id,$price,$key){
+    public function preReservation($id,$price,$key,$discount){
 
         $content = Website::find(1);
         $offers = Offers::where('id','=',$id)->first();
@@ -250,7 +251,7 @@ class FrontendController extends Controller
         }
 
 
-        return view('front.reservation', compact('content','price','offers','title','place','id','discount','option'));
+        return view('front.reservation', compact('content','price','offers','title','place','id','discount','option','discount'));
     }
     public function reservation($id,$price,$key){
 
@@ -261,7 +262,6 @@ class FrontendController extends Controller
             if($key==$key1){
                 $title=$item;
             }
-
         }
         \Cart::remove($id);
         $newPrice = $price*0.20;
@@ -295,6 +295,12 @@ class FrontendController extends Controller
             $title = $request->title;
             $price = $request->price;
             $place = $request->place;
+            foreach($request->option as $opt)
+            {
+                $data[] = $opt;
+                $options = json_encode($data);
+            }
+            $address = $request->address;
             $home = $request->home;
 
 
@@ -310,7 +316,7 @@ class FrontendController extends Controller
             }
             $intent = $payment_intent->client_secret;
 
-            return view('front.checkout1', compact('content','offers','price','title','newPrice','user','intent','date','time','place','home'));
+            return view('front.checkout1', compact('content','offers','price','title','newPrice','user','intent','date','time','place','home','address','options'));
         }
     }
 
@@ -343,7 +349,9 @@ class FrontendController extends Controller
             $res->pay_price = $request->pay_price;
             $res->rprice = $request->rprice;
             $res->offer_id = $request->offer_id;
-        $res->place = $request->place;
+            $res->place = $request->place;
+            $res->address = $request->address;
+            $res->option = $request->option;
         if($request->home!=0){
             $res->home = 1;
         }
@@ -352,7 +360,17 @@ class FrontendController extends Controller
         }
 
             $res->order_no = "ON-".rand(100000000, 900000000);
-            $res->save();
+
+        if( $res->save()){
+            $walet = new Wallet();
+            $walet->user_id = Auth::user()->id;
+            $walet->reservation_id = $res->id;
+            $walet->pay_price = $res->pay_price;
+            $walet->r_price = $res->rprice;
+            $walet->pay_total = $res->rprice;
+            $walet->save();
+         }
+
            return  view('front.compelte', compact('res'));
 
     }

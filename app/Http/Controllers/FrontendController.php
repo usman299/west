@@ -339,6 +339,7 @@ class FrontendController extends Controller
             $res->user_id = Auth::user()->id;
             $res->fname = $request->fname;
             $res->lname = $request->lname;
+        $res->notes = $request->notes;
             $res->email = $request->email;
             $res->address = $request->address;
             $res->phone = $request->phone;

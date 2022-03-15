@@ -33,7 +33,7 @@
                 <div class="col-lg-10 offset-lg-1">
                     <div class="sectionTitle text-center">
                         <img src="{{asset('front/images/icons/1.png')}}" alt=""/>
-                        <h5 class="primaryFont">Notre mission</h5>
+                        <h5 class="primaryFont">{{$content->offer_title1}}</h5>
                         <h2>{{$content->mtitle1}} <span class="colorPrimary fontWeight400">{{$content->mtitle2}}</span></h2>
                         <p>
                             {{$content->mission}}

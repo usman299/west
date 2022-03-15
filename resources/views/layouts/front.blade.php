@@ -1203,7 +1203,7 @@ $gs = \App\Website::find(1);
 <script src="{{asset('front/js/jquery.appear.js')}}"></script>
 <script src="https://maps.google.com/maps/api/js?key=AIzaSyBJtPMZ_LWZKuHTLq5o08KSncQufIhPU3o"></script>
 <script src="{{asset('front/js/gmaps.js')}}"></script>
-<script src="{{asset('front/js/jquery.nice-select.min.js')}}"></script>
+{{--<script src="{{asset('front/js/jquery.nice-select.min.js')}}"></script>--}}
 <script src="{{asset('front/js/jquery.datetimepicker.full.min.js')}}"></script>
 <script src="{{asset('front/js/slick.js')}}"></script>
 <script src="{{asset('front/js/lightcase.js')}}"></script>

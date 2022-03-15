@@ -21,6 +21,7 @@
 
 
 <script src="{{asset('/calandar/lib/main.js')}}"></script>
+<script src='{{asset('/calandar/lib/locales-all.js')}}'></script>
 <script>
 
     document.addEventListener('DOMContentLoaded', function() {
@@ -33,6 +34,7 @@
                 right: 'dayGridMonth,dayGridWeek,dayGridDay'
             },
             initialDate: '{{now()->format('Y-m-d')}}',
+            locale: 'fr',
             navLinks: true, // can click day/week names to navigate views
             editable: true,
             dayMaxEvents: true, // allow "more" link when too many events

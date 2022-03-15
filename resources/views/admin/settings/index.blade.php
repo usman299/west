@@ -90,14 +90,21 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
+                                    <label for="email_address"> Titre de la rubrique</label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="offer_title1" value="{{$gs->offer_title1??''}}">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
                                     <label for="email_address"> Description</label>
                                     <div class="form-group">
                                         <input type="text" class="form-control" name="offer_description" value="{{$gs->offer_description}}">
                                     </div>
-                                </div>
+                                </div><br>
 
 
                                 <button type="submit" class="btn btn-raised btn-primary btn-round waves-effect">Sauvegarder</button>
+
                             </form>
                         </div>
                     </div>

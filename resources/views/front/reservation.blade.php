@@ -118,14 +118,14 @@
                                             <input class="required"  type="text" placeholder="Votre adresse complète" name="address" value="" >
                                         </div>
                                         <div class="input-field col-lg-12" style="margin-top: 20px;">
-                                            <input class="required price" id="price" type="number" name="price" value="{{$price-(($price/100)*$discount)}}" readonly>
+                                            <input class="required price" id="price" type="text" name="price" value="{{$price-(($price/100)*$discount)}}" readonly>
                                         </div>
 
                                         <div class="col-lg-12" style="margin-top: 20px;">
                                             <h5>Sélectionnez les services optionnels</h5>
 
                                             @foreach($option as $key=> $row)
-                                                <input type="checkbox"  name="option[]" onclick="optionPrice(this)" class="checkbox"  value="{{$row->id}}">{{$row->name}}
+                                                <input type="checkbox"  name="option[]" onclick="optionPrice(this)"  id="planned_checked" class="checkbox planned_checked"  value="{{$row->id}}">{{$row->name}}
                                             @endforeach
 
                                         </div>
@@ -154,7 +154,7 @@
                                     <div ><label> <b>Remise</b></label><label ><b>:</b></label> <label style="float: right;" >-{{($price/100)*$discount}}€</label></div>
                                     <div style="display: none" class="city"  ><label> <b>Ville Prix</b></label><label ><b>:</b></label> <label style="float: right;" class="cityprice" ></label></div>
                                     <div style="display: none" class="home1"  ><label> <b>Domicile</b></label><label ><b>:</b></label> <label style="float: right;" class="homeprice" ></label></div>
-                                    <div class="option"  ></div>
+                                    <div class="options"  ></div>
                                     <div style="display: none" class="place"  ><label> <b>Total</b></label><label ><b>:</b></label> <label style="float: right;" class="totalprice" ></label></div>
 
 
@@ -233,6 +233,7 @@
             });
         }
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script>
         function optionPrice(elem) {
 
@@ -253,16 +254,31 @@
                     let optionPrice = response.price;
                     let optionid =response.id;
                     let optionName = response.name;
-                    $('.option').append(' <div class="hide'+optionid+'"><label> <b >'+optionName+'</b></label><label ><b>:</b></label> <label style="float: right;"  >'+optionPrice+'</label></div><br>');
+                    if($(".planned_checked").prop('checked')) {
+                        $('.options').append(' <div class="hide'+optionid+'"><label> <b >'+optionName+'</b></label><label ><b>:</b></label> <label style="float: right;" class="getprice'+optionid+'" >'+optionPrice+'€</label></div><br>');
+                        let finalprice = parseInt(x)+parseInt(optionPrice);
 
-                    let finalprice = parseInt(x)+parseInt(optionPrice);
+                        $(".totalprice").html(finalprice+'€');
+                        $(".price").val(finalprice);
+                        x=0;
+                    } else {
 
-                    $(".totalprice").html(finalprice+'€');
-                    $(".price").val(finalprice);
-                    x=0;
+                        // input price
+                        let price = $(".price").val();
+                        //select price
+                       let getprice = $(".getprice"+optionid).text();
+                        let finalprice = parseInt(price)-parseInt(getprice);
+                        $(".totalprice").html(finalprice+'€');
+                        $(".price").val(finalprice);
+                        $(".hide"+optionid).hide();
+                    }
+
+
+
                 },
             });
 
         }
     </script>
+
 @endsection

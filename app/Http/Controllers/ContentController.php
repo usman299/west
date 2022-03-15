@@ -107,6 +107,7 @@ class ContentController extends Controller
        $gs->footer_text = $request->footer_text;
        $gs->discount = $request->discount;
        $gs->offer_title = $request->offer_title;
+       $gs->offer_title1 = $request->offer_title1;
        $gs->offer_description = $request->offer_description;
        if ($request->hasfile('logo')) {
            $image1 = $request->file('logo');

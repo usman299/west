@@ -125,7 +125,7 @@
                                             <h5>Sélectionnez les services optionnels</h5>
 
                                             @foreach($option as $key=> $row)
-                                                <input type="checkbox"  name="option[]" onclick="optionPrice(this)"  id="planned_checked" class="checkbox planned_checked"  value="{{$row->id}}">{{$row->name}}
+                                                <input type="checkbox"  name="option[]" onclick="optionPrice(this)"  id="planned_checked" class="checkbox planned_checked{{$row->id}}"  value="{{$row->id}}">{{$row->name}}
                                             @endforeach
 
                                         </div>
@@ -254,7 +254,7 @@
                     let optionPrice = response.price;
                     let optionid =response.id;
                     let optionName = response.name;
-                    if($(".planned_checked").prop('checked')) {
+                    if($(".planned_checked"+id).prop('checked')) {
                         $('.options').append(' <div class="hide'+optionid+'"><label> <b >'+optionName+'</b></label><label ><b>:</b></label> <label style="float: right;" class="getprice'+optionid+'" >'+optionPrice+'€</label></div><br>');
                         let finalprice = parseInt(x)+parseInt(optionPrice);
 

@@ -255,7 +255,7 @@
                     let optionid =response.id;
                     let optionName = response.name;
                     if($(".planned_checked"+id).prop('checked')) {
-                        $('.options').append(' <div class="hide'+optionid+'"><label> <b >'+optionName+'</b></label><label ><b>:</b></label> <label style="float: right;" class="getprice'+optionid+'" >'+optionPrice+'€</label></div><br>');
+                        $('.options').append(' <div class="hide'+optionid+'"><label> <b >'+optionName+'</b></label><label ><b>:</b></label> <label style="float: right;" class="getprice'+optionid+'" >'+optionPrice+'€</label></div>');
                         let finalprice = parseInt(x)+parseInt(optionPrice);
 
                         $(".totalprice").html(finalprice+'€');

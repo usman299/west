@@ -28,7 +28,8 @@
 
                         @if($res->option)
                             @foreach(json_decode($res->option) as $key => $opt)
-                    <h6>{{$key+1}} : {{$opt}} </h6>
+                                <?php $optt = \App\Options::where('id','=',$opt)->first();?>
+                    <h6>{{$key+1}} : {{$optt->name}} </h6>
                         @endforeach
                         @endif
 

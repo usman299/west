@@ -103,7 +103,7 @@
                                         </div>
 
                                         <div class="input-field col-lg-12">
-                                            <textarea class="required" name="address" placeholder="Votre adresse" required></textarea>
+                                            <textarea class="required" name="notes" placeholder="Remarques" required></textarea>
                                         </div>
                                         <div class="input-field col-lg-12" style="margin-top: 20px; margin-left: 250px;">
 

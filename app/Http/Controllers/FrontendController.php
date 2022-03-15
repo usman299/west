@@ -156,6 +156,7 @@ class FrontendController extends Controller
         $order = new Order();
         $order->user_id = Auth::user()->id;
         $order->fname = $request->fname;
+        $order->notes = $request->notes;
         $order->lname = $request->lname;
         $order->email = $request->email;
         $order->phone = $request->phone;

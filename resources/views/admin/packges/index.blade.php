@@ -6,8 +6,8 @@
             <div class="card">
                 <div class="header">
                     <h2><strong>Des Forfaits</strong>
-                        <a href="#defaultModal" class="btn btn-primary"  data-toggle="modal" data-target="#defaultModal">Ajouter un nouveau
-                        </a>
+{{--                        <a href="#defaultModal" class="btn btn-primary"  data-toggle="modal" data-target="#defaultModal">Ajouter un nouveau--}}
+{{--                        </a>--}}
                     </h2>
                 </div>
                 <div class="body">
@@ -18,6 +18,7 @@
                                 <th>Id</th>
                                 <th>Title</th>
                                 <th>Photo</th>
+                                <th>Prix</th>
                                 <th>Rabais</th>
                                 <th>Action</th>
                             </tr>
@@ -30,6 +31,9 @@
                                         {{$row->title}}
                                     </td>
                                     <td><img src="{{asset($row->image)}}" height="50px" alt=""></td>
+                                    <td>
+                                        {{$row->price}}€
+                                    </td>
                                     <td>
                                         {{$row->discount}}% de remise
                                     </td>

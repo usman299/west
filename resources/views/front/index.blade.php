@@ -211,7 +211,8 @@
                         <div class="serviceItem_01 text-center">
                             <img src="{{asset($row->image)}}" style="width: 200px; height: 150px;">
                             <p style="margin-top: 20px;">
-                                <b>{{$row->title}} : {{$row->price}}€({{$row->discount}}% de remise)</b>
+                                <h5>{{$row->title}}</h5>
+                                <b> {{$row->price}}€({{$row->discount}}% de remise)</b>
                             </p><br>
                             <a href="#" class="btn btn-default">Réserve</a>
                         </div>

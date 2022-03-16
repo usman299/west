@@ -133,6 +133,7 @@
                         <li><a href="{{route('general.video')}}">Video</a></li>
                         <li><a href="{{route('general.about')}}">À propos de nous</a></li>
                         <li><a href="{{route('admin.offers')}}">Offres</a></li>
+                        <li><a href="{{route('admin.packges')}}">Forfaits</a></li>
                         <li><a href="{{route('general.blog')}}">Galerie</a></li>
                     </ul>
                 </li>

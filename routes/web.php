@@ -67,11 +67,17 @@ Route::get('/home', 'HomeController@index')->name('home');
 
     Route::get('/general/blog', 'ContentController@blog')->name('general.blog');
 Route::get('/general/blog', 'ContentController@blog')->name('general.blog');
+
     Route::get('/admin/offers/create', 'ContentController@offersCreate')->name('admin.offers.create');
 Route::get('/admin/offers', 'ContentController@offers')->name('admin.offers');
 Route::post('/admin/offers/store', 'ContentController@offersStore')->name('admin.offers.store');
 Route::get('/admin/offers/edit/{id}', 'ContentController@offersEdit')->name('admin.offers.edit');
 Route::post('/admin/offers/update/{id}', 'ContentController@offersUpdate')->name('admin.offers.update');
+    Route::get('/admin/packges/create', 'ContentController@packgesCreate')->name('admin.packges.create');
+    Route::get('/admin/packges', 'ContentController@packges')->name('admin.packges');
+    Route::post('/admin/packges/store', 'ContentController@packgesStore')->name('admin.packges.store');
+    Route::get('/admin/packges/edit/{id}', 'ContentController@packgesEdit')->name('admin.packges.edit');
+    Route::post('/admin/packges/update/{id}', 'ContentController@packgesUpdate')->name('admin.packges.update');
 Route::get('/general/settings', 'ContentController@settings')->name('general.settings');
 Route::get('/general/about', 'ContentController@about')->name('general.about');
 Route::get('/general/video', 'ContentController@video')->name('general.video');

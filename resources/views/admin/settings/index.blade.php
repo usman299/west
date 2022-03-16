@@ -101,6 +101,22 @@
                                         <input type="text" class="form-control" name="offer_description" value="{{$gs->offer_description}}">
                                     </div>
                                 </div><br>
+                                <div class="col-md-12">
+                                    <label for="email_address"><h5 style="text-align: center!important;">FORFAITS</h5></label>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email_address">Titre</label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control " name="package_title" value="{{$gs->package_title}}">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email_address"> La Description</label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="package_description" value="{{$gs->package_description??''}}">
+                                    </div>
+                                </div>
 
 
                                 <button type="submit" class="btn btn-raised btn-primary btn-round waves-effect">Sauvegarder</button>

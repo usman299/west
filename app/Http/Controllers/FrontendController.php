@@ -9,6 +9,7 @@ use App\Coupon;
 use App\Offers;
 use App\Options;
 use App\Order;
+use App\Packges;
 use App\Place;
 use App\Product;
 use App\Reservation;
@@ -41,8 +42,9 @@ class FrontendController extends Controller
         $content = Website::find(1);
         $products = Product::orderBy('created_at', 'DESC')->get();
         $blogs = Blog::orderBy('created_at', 'DESC')->get();
+        $pkg = Packges::orderBy('created_at', 'DESC')->get();
         $offers =  Offers::orderBy('created_at', 'DESC')->get();
-        return view('front.index', compact('content', 'products', 'blogs','offers'));
+        return view('front.index', compact('content', 'products', 'blogs','offers','pkg'));
     }
     public function products(){
         $products = Product::orderBy('created_at', 'DESC')->get();

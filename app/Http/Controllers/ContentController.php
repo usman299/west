@@ -6,6 +6,7 @@ use App\Blog;
 use App\Home;
 use App\Offers;
 use App\Options;
+use App\Packges;
 use App\Place;
 use App\Website;
 use Illuminate\Http\Request;
@@ -99,6 +100,8 @@ class ContentController extends Controller
        $gs = Website::find(1);
        $gs->sitename = $request->sitename;
        $gs->email = $request->email;
+       $gs->package_title = $request->package_title;
+       $gs->package_description = $request->package_description;
        $gs->phone = $request->phone;
        $gs->address = $request->address;
        $gs->time = $request->time;
@@ -407,6 +410,58 @@ class ContentController extends Controller
             'alert-type' => 'error'
         );
 
+        return redirect()->back()->with($notification);
+    }
+
+    public function packges(){
+        $pkg = Packges::all();
+        return view('admin.packges.index', compact('pkg'));
+    }
+    public function packgesStore(Request $request){
+
+        $pkg = new Packges();
+        $pkg->title = $request->title;
+        $pkg->price = $request->price;
+        $pkg->discount = $request->discount;
+
+        if ($request->hasfile('image')) {
+            $image1 = $request->file('image');
+            $name = time() . 'allimages' . '.' . $image1->getClientOriginalExtension();
+            $destinationPath = 'allimages/';
+            $image1->move($destinationPath, $name);
+            $pkg->image = 'allimages/' . $name;
+        }
+
+        $pkg->save();
+        $notification = array(
+            'messege' => 'Sauvegarde réussie!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+    public function packgesEdit($id){
+        $pkg = Packges::where('id','=',$id)->first();
+        return view('admin.packges.edit', compact('pkg'));
+    }
+    public function packgesUpdate(Request $request,$id){
+        $pkg = Packges::where('id','=',$id)->first();
+        $pkg->title = $request->title;
+        $pkg->price = $request->price;
+        $pkg->discount = $request->discount;
+
+        if ($request->hasfile('image')) {
+            $image1 = $request->file('image');
+            $name = time() . 'allimages' . '.' . $image1->getClientOriginalExtension();
+            $destinationPath = 'allimages/';
+            $image1->move($destinationPath, $name);
+            $pkg->image = 'allimages/' . $name;
+        }
+
+        $pkg->save();
+        $notification = array(
+            'messege' => 'Sauvegarde réussie!',
+            'alert-type' => 'success'
+        );
         return redirect()->back()->with($notification);
     }
 }

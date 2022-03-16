@@ -187,6 +187,44 @@
             </div>
         </div>
     </section>
+    <!-- Begin:: Service Section -->
+    <div class="commonSection serviceSection hasBeforeDecoration hasAfterDecoration" id="offers">
+        <div class="layer_img l_01 move_anim">
+            <img src="{{asset('front/images/bg/12.png')}}" alt=""/>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="sectionTitle text-center">
+                        <img src="{{asset('front/images/icons/2.png')}}" alt=""/>
+                        <h5 class="primaryFont">Communauté</h5>
+                        <h2>{{$content->package_title}}</h2>
+                        <p>
+                            {{$content->package_description}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                @foreach($pkg as $row)
+                    <div class="col-lg-3 col-md-6">
+                        <div class="serviceItem_01 text-center">
+                            <img src="{{asset($row->image)}}" style="width: 200px; height: 150px;">
+                            <p style="margin-top: 20px;">
+                                <b>{{$row->title}}[{{$row->discount}}% de remise]</b>
+                            </p><br>
+                            <a href="#" class="btn btn-default">Réserve</a>
+                        </div>
+                    </div>
+                @endforeach
+
+            </div>
+        </div>
+        <div class="layer_img l_02 move_anim_two">
+            <img src="{{asset('front/images/bg/11.png')}}" alt=""/>
+        </div>
+    </div>
+    <!-- End:: Service Section -->
     <!-- End:: About Section -->
     <!-- Begin:: Blog Section -->
     <section class="commonSection blogSection" id="blog">

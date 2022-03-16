@@ -207,7 +207,7 @@
             </div>
             <div class="row">
                 @foreach($pkg as $row)
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-4  col-md-6">
                         <div class="serviceItem_01 text-center">
                             <img src="{{asset($row->image)}}" style="width: 200px; height: 150px;">
                             <p style="margin-top: 20px;">

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f17ceb4e374a526d83300c66c48795b0",
+    "content-hash": "0fb0d7abcd07e4da70150c2fd390ed93",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -699,6 +699,73 @@
                 }
             ],
             "time": "2022-02-23T14:25:13+00:00"
+        },
+        {
+            "name": "golchha21/resmushit",
+            "version": "1.2.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/golchha21/ReSmushIt.git",
+                "reference": "5ab193adfa4e2e1289a6ae0a1f52919d4bb0fbea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/golchha21/ReSmushIt/zipball/5ab193adfa4e2e1289a6ae0a1f52919d4bb0fbea",
+                "reference": "5ab193adfa4e2e1289a6ae0a1f52919d4bb0fbea",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-fileinfo": "*",
+                "ext-json": "*",
+                "php": "^7.1|^7.2.5|^7.3|^8.0"
+            },
+            "require-dev": {
+                "laravel/framework": "^5.8|^6.0|^7.0|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Golchha21\\ReSmushIt\\Providers\\ServiceProvider"
+                    ]
+                },
+                "aliases": {
+                    "Optimize": "Golchha21\\ReSmushIt\\Facades\\Optimize"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Golchha21\\ReSmushIt\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ulhas Vardhan Golchha",
+                    "email": "vardhans@ulhas.net",
+                    "homepage": "https://www.ulhas.net",
+                    "role": "Web Architect"
+                }
+            ],
+            "description": "A Laravel package for the popular image optimization web service reSmush.it",
+            "homepage": "https://github.com/golchha21/resmushit",
+            "keywords": [
+                "golchha21",
+                "image-compression",
+                "image-compressor",
+                "image-optimisation",
+                "image-optimization",
+                "image-optimizer",
+                "laravel",
+                "laravel-package",
+                "php",
+                "resmushit"
+            ],
+            "time": "2022-01-14T16:54:13+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",

@@ -6,8 +6,8 @@
             <div class="card">
                 <div class="header">
                     <h2><strong>Des Forfaits</strong>
-{{--                        <a href="#defaultModal" class="btn btn-primary"  data-toggle="modal" data-target="#defaultModal">Ajouter un nouveau--}}
-{{--                        </a>--}}
+                        <a href="#defaultModal" class="btn btn-primary"  data-toggle="modal" data-target="#defaultModal">Ajouter un nouveau
+                        </a>
                     </h2>
                 </div>
                 <div class="body">

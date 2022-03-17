@@ -9,6 +9,8 @@ use App\Options;
 use App\Packges;
 use App\Place;
 use App\Website;
+use Golchha21\ReSmushIt\Facades\Optimize;
+use Golchha21\ReSmushIt\ReSmushIt;
 use Illuminate\Http\Request;
 
 class ContentController extends Controller
@@ -430,6 +432,7 @@ class ContentController extends Controller
             $destinationPath = 'allimages/';
             $image1->move($destinationPath, $name);
             $pkg->image = 'allimages/' . $name;
+            Optimize::path('allimages/' . $name);
         }
 
         $pkg->save();
@@ -455,6 +458,10 @@ class ContentController extends Controller
             $destinationPath = 'allimages/';
             $image1->move($destinationPath, $name);
             $pkg->image = 'allimages/' . $name;
+            $file = public_path( 'allimages/' . $name);
+            $resmushit = new ReSmushIt();
+            $result = $resmushit->path($file);
+            dd($result);
         }
 
         $pkg->save();

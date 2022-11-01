@@ -32,6 +32,7 @@ class ContentSeeder extends Seeder
             'facebook' => 'www.facebook.com',
             'instagram' => 'www.instagram.com',
             'time' => 'Mon to Friday',
+            'image' => '',
             'footer_text' => 'Lorem ipsum dolor sit amet, consectetur adipi-scing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
             'footer_logo' => 'front/images/bg/footer.png',
 
